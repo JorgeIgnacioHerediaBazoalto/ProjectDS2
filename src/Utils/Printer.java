@@ -30,6 +30,11 @@ public class Printer {
         System.out.println(colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
     }
 
+    public void printMessage(String message,boolean delay) {
+        System.out.println(colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
+        style.chargeSimulator();
+    }
+
     /**
      * Method to print a message with color given
      * 

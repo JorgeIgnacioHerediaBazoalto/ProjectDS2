@@ -7,24 +7,21 @@ package Model;
  * @author Karina Aguirre.
  */
 public class Client extends Persona{
-    private String location;
-    private int age;
-    private int identityCard;
+    protected String name, location;
+    protected int age, phoneNumber;
 
     /**
      * This is the constructor method that receives information about the client.
      *
-     * @param name the name of client.
-     * @param phoneNumber the client phone number.
-     * @param location location of client.
-     * @param age the age of client.
-     * @param identityCard the identity card of client.
+     * name the name of client.
+     * phoneNumber the client phone number.
+     * location location of client.
+     * age the age of client.
+     * identityCard the identity card of client.
      */
-    public Client(String name, int phoneNumber, String location, int age, int identityCard) {
-        super(name, phoneNumber);
-        this.location = location;
-        this.age=age;
-        this.identityCard=identityCard;
+    public Client() {
+        super();
+        this.location = null;
     }
 
     /**
@@ -45,39 +42,19 @@ public class Client extends Persona{
         this.location = location;
     }
 
-    /**
-     * Method that get the Age.
-     *
-     * @return age.
-     */
-    public int getAge() {
-        return age;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * Method that set the Age.
-     *
-     * @param age the age of client.
-     */
-    public void setAge(int age) {
-        this.age = age;
+    public String getName() {
+        return name;
     }
 
-    /**
-     * Method that get the Identity Card.
-     *
-     * @return  identityCard.
-     */
-    public int getIdentityCard() {
-        return identityCard;
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    /**
-     * Method that set the Identity Card.
-     *
-     * @param identityCard the identity card of client.
-     */
-    public void setIdentityCard(int identityCard) {
-        this.identityCard = identityCard;
+    public int getPhoneNumber() {
+        return phoneNumber;
     }
 }

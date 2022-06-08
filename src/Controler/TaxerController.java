@@ -1,11 +1,7 @@
-package Taxer;
+package Controler;
 
-import Controler.ClientController;
-import Controler.RaceController;
-import Model.Client;
-import Model.Race;
-import View.ClientView;
-import View.RaceView;
+import Model.*;
+import View.*;
 
 /**
  * This class controls the controllers of the App

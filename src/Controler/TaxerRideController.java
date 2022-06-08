@@ -1,7 +1,7 @@
-package Taxer;
+package Controler;
 
-import Utils.Colors;
-import Utils.ValuesRequester;
+import Utils.*;
+import View.*;
 
 /**
  * This class is to control the messages to ask if the user needs a ride

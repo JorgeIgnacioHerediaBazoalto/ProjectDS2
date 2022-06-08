@@ -24,7 +24,7 @@ public class Driver extends Persona{
      */
 
     public Driver(String name, int phoneNumber, int ageDriver, int licenseNumber, int racesAmount) {
-        super(name, phoneNumber);
+        //super(name, phoneNumber);
         AgeDriver = ageDriver;
         this.licenseNumber = licenseNumber;
         this.racesAmount = racesAmount;

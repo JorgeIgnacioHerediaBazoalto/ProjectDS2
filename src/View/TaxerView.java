@@ -1,4 +1,4 @@
-package Taxer;
+package View;
 
 import Utils.Colors;
 import Utils.Printer;
