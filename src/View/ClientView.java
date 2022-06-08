@@ -25,12 +25,9 @@ public class ClientView {
      * @param name the name of client.
      * @param phoneNumber the phone number of client.
      * @param location the location of client.
-     * @param age the age of client.
-     * @param identityCard the identity card of client.
      * @return client information.
      */
-    public String showGeneralInformationCLient (String name, int phoneNumber, String location, int age, int identityCard){
-        return ("Client name: "+name + "\nPhone Number: " + phoneNumber + "\nLocation: " + location +
-                "\nAge: " + age + "\n Identity Card: " + identityCard );
+    public String showGeneralInformationCLient (String name, int phoneNumber, String location){
+        return ("Client name: "+name + "\nPhone Number: " + phoneNumber + "\nLocation: " + location);
     }
 }

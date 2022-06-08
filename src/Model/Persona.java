@@ -5,9 +5,9 @@ public class Persona {
     protected String name;
     protected int phoneNumber;
 
-    public Persona(String name, int phoneNumber) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
+    public Persona() {
+        this.name = null;
+        this.phoneNumber = 0;
     }
 
     public String getName() {

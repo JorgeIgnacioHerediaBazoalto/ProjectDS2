@@ -1,7 +1,8 @@
-package Taxer;
+package Controler;
 
 import Utils.ValuesRequester;
 import Utils.Colors;
+import View.TaxerView;
 
 /**
  * This class is to control the messages to display of the start menu of the app

@@ -1,5 +1,7 @@
 package Utils;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * This is a util class to store text style values
  * This class contains constants values of different types of text style to be used in console prints
@@ -32,4 +34,12 @@ public class PrintStyle {
     public  final String PURPLE_UNDERLINED = "\033[4;35m"; // PURPLE
     public  final String CYAN_UNDERLINED = "\033[4;36m";   // CYAN
     public  final String WHITE_UNDERLINED = "\033[4;37m";  // WHITE
+
+    public void chargeSimulator() {
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

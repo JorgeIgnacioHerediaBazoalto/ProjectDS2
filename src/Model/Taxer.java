@@ -1,8 +1,5 @@
-package Taxer;
+package Model;
 
-import Model.Driver;
-import Model.Persona;
-import Model.Taxi;
 import java.util.ArrayList;
 
 /**
