@@ -21,6 +21,8 @@ public class Taxer {
     public Taxer() {
         this.taxis = new ArrayList<>();
         this.drivers = new ArrayList<>();
+        taxisAvailable = new ArrayList<>();
+        driversAvailable = new ArrayList<>();
     }
 
     public void addTaxi(Taxi taxi) {

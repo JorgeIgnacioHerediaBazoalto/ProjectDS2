@@ -33,5 +33,7 @@ public class TestSearch {
 
         taxer.searchTaxiAvailable();
         assertEquals(taxi3.getNumberPlate(), taxer.useTaxiAvailable().getNumberPlate());
+        assertEquals(taxi4.getNumberPlate(), taxer.useTaxiAvailable().getNumberPlate());
+
     }
 }
