@@ -30,6 +30,17 @@ public class Printer {
         System.out.println(colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
     }
 
+    /**
+     * Method to print a message with color given
+     * 
+     * @param message the information to print
+     * @param color the color of the text
+     */
+    public void printMessage(String message, String color) {
+        if (color.equalsIgnoreCase("red")){
+            System.out.println(colors.RED_BOLD_BRIGHT+message+colors.RESET);
+        }
+
 
     /**
      * Method to print 2 messages by console
@@ -37,7 +48,7 @@ public class Printer {
      * @param message1 string value
      * @param message2 string value
      */
-    public void printMessages(String message1, String message2) {
+    public void printBoxMessages(String message1, String message2) {
         System.out.println(colors.GREEN_BOLD_BRIGHT+message1+colors.RESET +
                 " " + style.BOXING+colors.WHITE_BOLD_BRIGHT+message2+colors.RESET+style.RESET);
     }
