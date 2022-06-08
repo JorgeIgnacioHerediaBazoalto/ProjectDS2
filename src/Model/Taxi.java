@@ -11,6 +11,7 @@ public class Taxi {
     private String carColor;
     private int capacity;
     private boolean availability;
+    private Driver taxiDriver;
 
     /**
      * This is a constructor class of Taxi, we suppose the taxi is available when initialized.
@@ -25,12 +26,17 @@ public class Taxi {
      * @param capacity How many people enter.
      *
      */
-    public Taxi(String numberPlate, String carModel, String carColor, int capacity) {
-        this.setNumberPlate(numberPlate);
-        this.setCarModel(carModel);
-        this.setCarColor(carColor);
-        this.setCapacity(capacity);
-        this.setAvailability(true);
+    public Taxi(String numberPlate, String carModel, String carColor, int capacity, Driver driver) {
+        this.numberPlate = numberPlate;
+        this.carModel = carModel;
+        this.carColor = carColor;
+        this.capacity = capacity;
+        this.taxiDriver = driver;
+        this.availability = false;
+    }
+
+    private void setTaxiDriver(Driver driver) {
+        this.taxiDriver = driver;
     }
 
     /**

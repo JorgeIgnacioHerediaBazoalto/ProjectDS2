@@ -47,7 +47,7 @@ public class ClientController {
     }
 
     public void askClientLocation() {
-        clientView.printMessage("Enter your location please: ");
+        clientView.printMessage("Enter your home location please: ");
         String location = valuesRequester.askStringValue();
         setClientLocation(location);
     }

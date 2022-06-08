@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestTaxi {
     TaxiView taxiViewTest = new TaxiView();
-    Taxi taxi = new Taxi("1234abc", "Hyunda-2022", "Rojo", 5);
+    Taxi taxi = new Taxi("1234abc", "Hyunda-2022", "Rojo", 5,null);
 
     @Test
     public void testTaxiGeneralInfo() {
