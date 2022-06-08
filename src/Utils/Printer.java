@@ -37,10 +37,10 @@ public class Printer {
      * @param color the color of the text
      */
     public void printMessage(String message, String color) {
-        if (color.equalsIgnoreCase("red")){
-            System.out.println(colors.RED_BOLD_BRIGHT+message+colors.RESET);
+        if (color.equalsIgnoreCase("red")) {
+            System.out.println(colors.RED_BOLD_BRIGHT + message + colors.RESET);
         }
-
+    }
 
     /**
      * Method to print 2 messages by console
