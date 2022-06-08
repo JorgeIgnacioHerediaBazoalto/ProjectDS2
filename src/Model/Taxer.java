@@ -52,9 +52,21 @@ public class Taxer {
         return taxiAvailable;
     }
 
+    public void removeDriver(int num){
+        drivers.remove(num);
+    }
 
-    public void searchDriverAvailable(){
+    public Driver driverFromList(ArrayList<Driver> drivers){
+        Driver driver = null;
+        int cont = 0;
 
+        if(cont < drivers.size()){
+            driver = drivers.get(cont);
+            removeDriver(cont);
+            cont++;
+        }
+
+        return driver;
     }
 
 }
