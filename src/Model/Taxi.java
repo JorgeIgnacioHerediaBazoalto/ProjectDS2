@@ -112,4 +112,5 @@ public class Taxi {
     public void setAvailability(boolean availability) {
         this.availability = availability;
     }
+
 }

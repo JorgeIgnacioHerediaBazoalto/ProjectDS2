@@ -1,4 +1,4 @@
-package Taxer;
+package Model;
 
 import Model.Driver;
 import Model.Persona;
@@ -11,21 +11,51 @@ import java.util.ArrayList;
  * @author Santiago Caballero
  */
 public class Taxer {
-    ArrayList<Persona> taxiDrivers;
     ArrayList<Taxi> taxis;
     ArrayList<Driver> drivers;
+
+    ArrayList<Taxi> taxisAvailable;
+    ArrayList<Driver> driversAvailable;
 
     /**
      * This is the constructor method of Taxer
      * It initializes lists of taxis, drivers and taxis with drivers
      */
     public Taxer() {
-        this.taxiDrivers = new ArrayList<>();
         this.taxis = new ArrayList<>();
         this.drivers = new ArrayList<>();
     }
 
+    public void addTaxi(Taxi taxi) {
+        taxis.add(taxi);
+    }
+
+    public void addDriver(Driver driver){
+        drivers.add(driver);
+    }
 
 
+    public void searchTaxiAvailable() {
+        for (Taxi taxiMaybeAvailable: taxis) {
+            if (taxiMaybeAvailable.isAvailability()){
+                taxisAvailable.add(taxiMaybeAvailable);
+            }
+        }
+    }
+
+    public void taxiIsNowNotAvailable(Taxi taxi) {
+        taxisAvailable.removeIf(taxiAvailable -> taxi.getNumberPlate().equals(taxiAvailable.getNumberPlate()));
+    }
+
+    public Taxi useTaxiAvailable() {
+        Taxi taxiAvailable = taxisAvailable.get(0);
+        taxiIsNowNotAvailable(taxiAvailable);
+        return taxiAvailable;
+    }
+
+
+    public void searchDriverAvailable(){
+
+    }
 
 }
