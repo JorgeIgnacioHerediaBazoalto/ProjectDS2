@@ -1,7 +1,7 @@
-<h1 style="color:yellow">TAXER</h1>
+# TAXER
 
 
->The <i style="color:red">TAXER</i> project allows you to order public transport service from different cabs, to see the information about the runs made by the drivers and also to see the information about the order made.
+>The **TAXER** project allows you to order public transport service from different cabs, to see the information about the runs made by the drivers and also to see the information about the order made.
 
 ### VISUAL
 
