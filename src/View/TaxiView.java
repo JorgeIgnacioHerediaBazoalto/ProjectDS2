@@ -29,8 +29,12 @@ public class TaxiView {
      * @param capacity How many people enter.
      * @return message of general information car.
      */
-    public String showGeneralInfoTaxi(String numberPlate, String carModel, String carColor, int capacity) {
-        return "Number plate: " + numberPlate + "\nCar model: " + carModel + "\nCar color: " + carColor + "\nCapacity: " + capacity;
+    public String showGeneralInfoTaxi(String numberPlate, String carModel, String carColor, int capacity, int taxiTrips) {
+        return "\nNumber plate: " + numberPlate +
+                "\nCar model: " + carModel +
+                "\nCar color: " + carColor +
+                "\nCapacity: " + capacity+
+                "\nTaxi Trips: "+ taxiTrips+"\n";
     }
 
     /**

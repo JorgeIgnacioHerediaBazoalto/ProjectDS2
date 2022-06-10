@@ -29,7 +29,8 @@ public class TaxiController {
      * @see TaxiView
      */
     public void taxiGeneralInfo() {
-        taxiView.printMessage(taxiView.showGeneralInfoTaxi(taxiModel.getNumberPlate(), taxiModel.getCarColor(), taxiModel.getCarModel(), taxiModel.getCapacity()));
+        taxiView.printMessage(taxiView.showGeneralInfoTaxi(taxiModel.getNumberPlate(), taxiModel.getCarColor(),
+                taxiModel.getCarModel(), taxiModel.getCapacity(),taxiModel.getTaxiTrips().size()));
     }
 
     /**

@@ -26,6 +26,9 @@ public class RaceView {
         printer.printMessage(message);
     }
 
+    public void printLoadStyle() {
+        printer.printLoadMessage("Looking for a taxi available"," .",4);
+    }
     /**
      *This method is responsible for creating the message to be printed.
      *
@@ -39,8 +42,22 @@ public class RaceView {
      * @return Message about career information.
      */
 
-    public String showInformationRace(String nameDriver, String nameClient, double costRace, String startingPoint, String arrivalPoint, int passengerCount, LocalDateTime dateTime){
-        return "DRIVER: "+nameDriver+"\nCLIENT: "+nameClient+"\nCOST: "+costRace+"\nSTARTING LOCATION: "+startingPoint+"\nARRIVAL LOCATION: "+arrivalPoint+"\nNUMBER OF PASSENGERS: "+passengerCount+"\nDATE/TIME OF THE RACE: "+dateTime;
+    public String showInformationRace(String nameDriver, String nameClient, double costRace, String startingPoint,
+                                      String arrivalPoint, int passengerCount, String dateTime){
+        return "\nDRIVER: "+nameDriver+
+                "\nCLIENT: "+nameClient+
+                "\nCOST: "+costRace+
+                "\nSTARTING LOCATION: "+startingPoint+
+                "\nARRIVAL LOCATION: "+arrivalPoint+
+                "\nNUMBER OF PASSENGERS: "+passengerCount+
+                "\nDATE/TIME OF THE RACE: "+dateTime;
+    }
+
+    public void showRaceData(double costRace, String startingPoint, String arrivalPoint, int passengerCount) {
+        printer.printMessage("\nCOST: "+costRace+
+                "\nSTARTING LOCATION: "+startingPoint+
+                "\nARRIVAL LOCATION: "+arrivalPoint+
+                "\nNUMBER OF PASSENGERS: "+passengerCount);
     }
 
 }

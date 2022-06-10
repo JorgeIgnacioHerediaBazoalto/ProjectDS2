@@ -9,12 +9,6 @@ public class TestTaxi {
     Taxi taxi = new Taxi("1234abc", "Hyunda-2022", "Rojo", 5,null);
 
     @Test
-    public void testTaxiGeneralInfo() {
-        assertEquals("Number plate: 1234abc\nCar model: Hyunda-2022\nCar color: Rojo\nCapacity: 5", taxiViewTest.showGeneralInfoTaxi(
-                taxi.getNumberPlate(), taxi.getCarModel(), taxi.getCarColor(), taxi.getCapacity()));
-    }
-
-    @Test
     public void testIsAvailable() {
         assertEquals("The taxi with number plate: 1234abc\nIs AVAILABLE", taxiViewTest.showIsAvailable(taxi.getNumberPlate(), taxi.isAvailability()));
     }

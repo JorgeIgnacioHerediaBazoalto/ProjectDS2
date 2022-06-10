@@ -14,9 +14,7 @@ public class RaceController {
 
     private final Race race;
     private final RaceView raceView;
-
     protected ValuesRequester valuesRequester;
-
     protected String orderAnswer;
     protected boolean order;
 
@@ -32,6 +30,10 @@ public class RaceController {
         this.raceView = raceView;
         this.valuesRequester = new ValuesRequester();
     }
+
+    public void setClientName(String clientName) {
+        race.setNameClient(clientName);
+    }
     public void setRaceStartPoint(String startingPoint) {
         race.setStartingPoint(startingPoint);
     }
@@ -40,6 +42,14 @@ public class RaceController {
     }
     public void setRacePassangers(int passangers) {
         race.setPassengerCount(passangers);
+    }
+
+    public void setDriverName(String driverName) {
+        race.setNameDriver(driverName);
+    }
+
+    public void setRaceDate() {
+        race.setDateTime();
     }
 
     public void askStartPoint() {
@@ -61,12 +71,12 @@ public class RaceController {
     }
 
 
-    public void askIfOrder() {
+    public void askIfSureOfInformation() {
         raceView.printMessage("\nAre you sure about this information?");
         orderAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
-    public boolean getIfOrder() {
+    public boolean sureOfInformation() {
         order = (orderAnswer.equalsIgnoreCase("Yes"));
         return order;
     }
@@ -75,14 +85,17 @@ public class RaceController {
         while (!order) {
             askInfo();
         }
+        order = false;
+        raceView.printLoadStyle();
     }
 
     public void askInfo() {
         askStartPoint();
         askArrivePoint();
         askPassangers();
-        askIfOrder();
-        getIfOrder();
+        raceActualData();
+        askIfSureOfInformation();
+        sureOfInformation();
     }
 
     /**
@@ -93,6 +106,11 @@ public class RaceController {
      */
 
     public void raceInformation(){
-        raceView.printMessage(raceView.showInformationRace(race.getNameDriver(), race.getNameClient(), race.getCost(), race.getStartingPoint(), race.getArrivalPoint(), race.getPassengerCount(), race.getDateTime()));
+        raceView.printMessage(raceView.showInformationRace(race.getNameDriver(), race.getNameClient(), race.getCost(),
+                race.getStartingPoint(), race.getArrivalPoint(), race.getPassengerCount(), race.getDateTime()));
+    }
+
+    public void raceActualData() {
+        raceView.showRaceData(race.getCost(),race.getStartingPoint(),race.getArrivalPoint(),race.getPassengerCount());
     }
 }

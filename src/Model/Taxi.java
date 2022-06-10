@@ -5,6 +5,9 @@
  */
 package Model;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Taxi {
     private String numberPlate;
     private String carModel;
@@ -12,6 +15,10 @@ public class Taxi {
     private int capacity;
     private boolean availability;
     private Driver taxiDriver;
+    private ArrayList<Race> taxiTrips;
+    protected int iterations;
+
+    private Random random;
 
     /**
      * This is a constructor class of Taxi, we suppose the taxi is available when initialized.
@@ -33,9 +40,11 @@ public class Taxi {
         this.capacity = capacity;
         this.taxiDriver = driver;
         this.availability = false;
+        this.taxiTrips = new ArrayList<>();
+        this.iterations = 0;
     }
 
-    private void setTaxiDriver(Driver driver) {
+    public void setTaxiDriver(Driver driver) {
         this.taxiDriver = driver;
     }
 
@@ -119,4 +128,28 @@ public class Taxi {
         this.availability = availability;
     }
 
+    public void setTaxiTrips(ArrayList<Race> taxiTrips) {
+        this.taxiTrips = taxiTrips;
+    }
+
+    public Driver getTaxiDriver() {
+        return taxiDriver;
+    }
+
+    public ArrayList<Race> getTaxiTrips() {
+        return taxiTrips;
+    }
+
+    public void addTaxiTrip(Race race) {
+        taxiTrips.add(race);
+    }
+
+    public void addIteration() {
+        random = new Random();
+        this.iterations += random.nextInt(1,3);
+    }
+
+    public int getIterations() {
+        return iterations;
+    }
 }

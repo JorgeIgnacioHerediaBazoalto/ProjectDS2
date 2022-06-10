@@ -24,4 +24,8 @@ public class TaxerView {
     public void printMessage(String message, boolean delay) {
         printer.printMessage(message,delay);
     }
+
+    public void printLoadStyle() {
+        printer.printLoadMessage("Loading"," .",4);
+    }
 }

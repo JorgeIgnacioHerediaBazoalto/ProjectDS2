@@ -37,9 +37,22 @@ public class PrintStyle {
 
     public void chargeSimulator() {
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void chargeSimulator(String messageLoad, int quantity) {
+        for (int i = 0; i < quantity; i++) {
+            try {
+                System.out.print(messageLoad);
+                TimeUnit.MILLISECONDS.sleep(5);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+        System.out.println();
     }
 }

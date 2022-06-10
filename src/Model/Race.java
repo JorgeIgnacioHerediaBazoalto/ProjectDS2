@@ -1,6 +1,7 @@
 package Model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *This class represents the information about the race.
@@ -13,7 +14,7 @@ public class Race {
     private double cost;
     private String nameDriver, nameClient, startingPoint, arrivalPoint;
     private int passengerCount;
-    private LocalDateTime dateTime;
+    private String dateTime;
 
     /**
      * This is the constructor method of the <i style="color:red">Race</i> class.
@@ -30,11 +31,12 @@ public class Race {
      */
 
     public Race() {
+        this.nameDriver = null;
         this.cost = Math.random()*(50-20)*20;
         this.startingPoint = null;
         this.arrivalPoint = null;
         this.passengerCount = 0;
-        dateTime = LocalDateTime.now();
+        dateTime = "";
     }
 
     /**
@@ -163,16 +165,16 @@ public class Race {
      * @return dateTime
      */
 
-    public LocalDateTime getDateTime() {
+    public String getDateTime() {
         return dateTime;
     }
 
     /**
      * This method helps to set a value on the dateTime variable.
-     * @param dateTime The date and time of the cab order.
      */
 
-    public void setDateTime(LocalDateTime dateTime) {
-        this.dateTime = dateTime;
+    public void setDateTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        this.dateTime = formatter.format(LocalDateTime.now());
     }
 }

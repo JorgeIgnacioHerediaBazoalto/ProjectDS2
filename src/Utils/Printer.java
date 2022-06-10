@@ -58,14 +58,10 @@ public class Printer {
                 " " + style.BOXING+colors.WHITE_BOLD_BRIGHT+message2+colors.RESET+style.RESET);
     }
 
-    /**
-     * Overloading the method to print 2 messages by console
-     *
-     * @param message string value
-     * @param value int value
-     */
-    public void printMessages(String message, int value) {
-        System.out.println(message+": "+value);
+    public void printLoadMessage(String message, String messageLoad, int quantity) {
+        System.out.print("\n"+colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
+        style.chargeSimulator(colors.WHITE_BOLD_BRIGHT+messageLoad+colors.RESET,quantity);
+        System.out.println();
     }
 
     /**
