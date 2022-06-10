@@ -53,26 +53,26 @@ public class RaceController {
     }
 
     public void askStartPoint() {
-        raceView.printMessage("Enter your start point please: ");
+        raceView.printAskTheStartPoint();
         String startPoint = valuesRequester.askStringValue();
         setRaceStartPoint(startPoint);
     }
 
     public void askArrivePoint() {
-        raceView.printMessage("Enter your arrive point please: ");
+        raceView.printAskTheArrivetPoint();
         String arrivePoint = valuesRequester.askStringValue();
         setRaceArrivePoint(arrivePoint);
     }
 
     public void askPassangers() {
-        raceView.printMessage("Enter the number of passangers please: ");
+        raceView.printAskTheNUmberOfPassangers();
         int passangers = valuesRequester.askIntValue();
         setRacePassangers(passangers);
     }
 
 
     public void askIfSureOfInformation() {
-        raceView.printMessage("\nAre you sure about this information?");
+        raceView.printIfTheAboutInformation();
         orderAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
@@ -106,11 +106,13 @@ public class RaceController {
      */
 
     public void raceInformation(){
+        raceView.printTheGeneralInformationOfRace();
         raceView.printMessage(raceView.showInformationRace(race.getNameDriver(), race.getNameClient(), race.getCost(),
                 race.getStartingPoint(), race.getArrivalPoint(), race.getPassengerCount(), race.getDateTime()));
     }
 
     public void raceActualData() {
+        raceView.printerTheInformationOfRace();
         raceView.showRaceData(race.getCost(),race.getStartingPoint(),race.getArrivalPoint(),race.getPassengerCount());
     }
 }

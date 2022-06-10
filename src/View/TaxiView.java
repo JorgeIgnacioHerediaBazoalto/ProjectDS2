@@ -1,5 +1,7 @@
 package View;
 import Utils.Printer;
+import Utils.Colors;
+import Utils.PrintStyle;
 
 /**
  * This is the TaxiView class, this class has the job of printing info of taxi in console
@@ -9,7 +11,10 @@ import Utils.Printer;
  * @author Jorge Heredia
  */
 public class TaxiView {
-    Printer printer = new Printer();
+    protected Printer printer = new Printer();
+    protected Colors colors = new Colors();
+    protected PrintStyle printStyle = new PrintStyle();
+
 
     /**
      * This method print message in console.
@@ -18,6 +23,7 @@ public class TaxiView {
     public void printMessage(String message) {
         printer.printMessage(message);
     }
+    public void titleInformationOfTaxi(){printMessage("\n"+colors.PURPLE_BACKGROUND+"INFORMATION FROM THE TAXI"+colors.RESET+"\n");}
 
     /**
      * This method create the message it contains general information or identification information.
@@ -30,11 +36,11 @@ public class TaxiView {
      * @return message of general information car.
      */
     public String showGeneralInfoTaxi(String numberPlate, String carModel, String carColor, int capacity, int taxiTrips) {
-        return "\nNumber plate: " + numberPlate +
-                "\nCar model: " + carModel +
-                "\nCar color: " + carColor +
-                "\nCapacity: " + capacity+
-                "\nTaxi Trips: "+ taxiTrips+"\n";
+        return colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+"\nNumber plate:"+colors.RESET+" "+ colors.WHITE_BOLD_BRIGHT + numberPlate +
+                colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+ "\nCar model:"+colors.RESET+" "+ colors.WHITE_BOLD_BRIGHT + carModel +
+                colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+"\nCar color:"+colors.RESET+" " + colors.WHITE_BOLD_BRIGHT+ carColor +
+                colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+ "\nCapacity:"+colors.RESET+" " + colors.WHITE_BOLD_BRIGHT+ capacity+
+                colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+"\nTaxi Trips:"+colors.RESET+" "+ colors.WHITE_BOLD_BRIGHT+ taxiTrips+"\n";
     }
 
     /**

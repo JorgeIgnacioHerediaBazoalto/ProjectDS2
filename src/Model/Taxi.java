@@ -146,7 +146,7 @@ public class Taxi {
 
     public void addIteration() {
         random = new Random();
-        this.iterations += random.nextInt(1,3);
+        this.iterations += random.nextInt(3);
     }
 
     public int getIterations() {

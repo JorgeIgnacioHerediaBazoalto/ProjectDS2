@@ -29,51 +29,92 @@ public class ClientController {
         this.valuesRequester = new ValuesRequester();
     }
 
+    /**
+     * Method that set the name from the client.
+     *
+     * @param name the name from the client.
+     */
     public void setClientName(String name) {
         clientModel.setName(name);
     }
+
+    /**
+     * Method that set the location from the client.
+     *
+     * @param location the location from the client.
+     */
     public void setClientLocation(String location) {
         clientModel.setLocation(location);
     }
+
+    /**
+     * Method that set the number phone from the client.
+     *
+     * @param phone the number phone from the client.
+     */
     public void setClientPhone(int phone) {
         clientModel.setPhoneNumber(phone);
     }
 
 
+    /**
+     * This method ask the name from the client.
+     */
     public void askClientName() {
-        clientView.printMessage("Enter your name please: ");
+        clientView.printAskTheNameClient();
         String name = valuesRequester.askStringValue();
         setClientName(name);
     }
 
+    /**
+     * This method ask the location from the client.
+     */
     public void askClientLocation() {
-        clientView.printMessage("Enter your home location please: ");
+        clientView.printAskTheLocationClient();
         String location = valuesRequester.askStringValue();
         setClientLocation(location);
     }
 
+    /**
+     * This method ask the number phone from the client.
+     */
     public void askClientPhone() {
-        clientView.printMessage("Enter your phone number please: ");
+        clientView.printAskThePhoneClient();
         int phone = valuesRequester.askIntValue();
         setClientPhone(phone);
     }
 
+    /**
+     * This method ask if the entered information is sure.
+     * The answer is yes or no.
+     */
     public void askIfSure() {
-        clientView.printMessage("\nAre you sure about your information?");
+        clientView.printIfTheAboutInformation();
         sureAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
+    /**
+     * Method that get if sure when the answer is yes.
+     *
+     * @return isSure
+     */
     public boolean getIfSure() {
         isSure = (sureAnswer.equalsIgnoreCase("Yes"));
         return isSure;
     }
 
+    /**
+     * This method ask the information again in case the answer is no.
+     */
     public void askClientInfo() {
         while (!isSure) {
             askInfo();
         }
     }
 
+    /**
+     * This method gets the all information from the client.
+     */
     public void askInfo() {
         askClientName();
         askClientLocation();
@@ -91,8 +132,8 @@ public class ClientController {
      * @see ClientView
      */
     public void clientGeneralInformation(){
-        clientView.printMessage("");
-        clientView.printMessage(clientView.showGeneralInformationCLient(clientModel.getName(),
+        clientView.printTitleInformationOfClient();
+        clientView.printMessage(clientView.showGeneralInformationClient(clientModel.getName(),
                 clientModel.getPhoneNumber(),clientModel.getLocation()));
     }
 }

@@ -27,7 +27,7 @@ public class Printer {
      * @param message a String value
      */
     public void printMessage(String message) {
-        System.out.println(colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
+        System.out.print(colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
     }
 
     public void printMessage(String message,boolean delay) {

@@ -54,7 +54,7 @@ public class TaxerRideController {
      * Method to ask if the user is sure or not to order a taxi
      */
     private void askIfOrder() {
-        taxerRideView.printMessage("Do you want to order a Taxi ?", colors.WHITE_BOLD_BRIGHT);
+        taxerRideView.printMessage("\nDo you want to order a Taxi ?", colors.WHITE_BOLD_BRIGHT);
         taxiRequestAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
@@ -83,7 +83,7 @@ public class TaxerRideController {
         if (taxerModel.getTaxisAvailable().size() > 0) {
             Taxi taxiAvailable = taxerModel.getTaxisAvailable().get(0);
             setRaceAttributes(taxiAvailable);
-            taxerRideView.printMessage("A taxi available is starting the ride");
+            taxerRideView.printMessage("\n A taxi available is starting the ride \n");
             raceController.raceInformation();
             instanceTaxiController(taxiAvailable);
         }
@@ -124,7 +124,7 @@ public class TaxerRideController {
      * This method sets an end message
      */
     private void endMessage() {
-        taxerRideView.printMessage(colors.BLUE_BOLD_BRIGHT+"----"+
+        taxerRideView.printMessage(colors.BLUE_BOLD_BRIGHT+"\n ----"+
                 colors.WHITE_BOLD_BRIGHT+ "Ok come back when you need a taxi"
                 +colors.BLUE_BOLD_BRIGHT+ "----"+colors.RESET);
     }
