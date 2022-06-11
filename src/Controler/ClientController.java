@@ -62,7 +62,7 @@ public class ClientController {
      */
     public void askClientName() {
         clientView.printAskTheNameClient();
-        String name = valuesRequester.askStringValue();
+        String name = valuesRequester.askName();
         setClientName(name);
     }
 
@@ -71,7 +71,7 @@ public class ClientController {
      */
     public void askClientLocation() {
         clientView.printAskTheLocationClient();
-        String location = valuesRequester.askStringValue();
+        String location = valuesRequester.askLocation();
         setClientLocation(location);
     }
 

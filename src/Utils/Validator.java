@@ -9,6 +9,12 @@ package Utils;
  */
 public class Validator {
 
+    private final RegularExpression regularExpression;
+
+    public Validator(){
+        regularExpression = new RegularExpression();
+    }
+
     /**
      * Method to verify an int value introduced by the user.
      * It will verify if the value introduced by the user can be parsed in an int with a try and catch.
@@ -28,6 +34,47 @@ public class Validator {
         return isCorrect;
     }
 
+    /**
+     * This method helps to validate the user's response.
+     * 
+     * Helps to validate if the user did not enter a strange character or number.
+     * 
+     * @param name Name entered by the user.
+     * @return true in case everything is correct and false when you enter a rare character or number.
+     */
+
+    public boolean verifyName(String name){
+
+        boolean result = true;
+
+        if (regularExpression.validateNumbers(name) || regularExpression.validateSymbols(name)) {
+            result = false;
+        }
+
+        return result;
+
+    }
+
+    /**
+     * This method helps to validate the user's response.
+     * 
+     * Helps to validate that the user has not entered any strange characters when entering their location.
+     * 
+     * @param location The location entered by the user.
+     * @return true when the rule is satisfied and false when it has strange characters.
+     */
+
+    public boolean verifyLocation(String location){
+
+        boolean result = true;
+
+        if (regularExpression.validateSymbols(location)) {
+            result = false;
+        }
+
+        return result;
+
+    }
 
     /**
      * Method to validate if a string is equals to one of the required answers.

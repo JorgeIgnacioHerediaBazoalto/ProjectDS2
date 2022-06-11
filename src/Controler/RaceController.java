@@ -54,13 +54,13 @@ public class RaceController {
 
     public void askStartPoint() {
         raceView.printAskTheStartPoint();
-        String startPoint = valuesRequester.askStringValue();
+        String startPoint = valuesRequester.askLocation();
         setRaceStartPoint(startPoint);
     }
 
     public void askArrivePoint() {
         raceView.printAskTheArrivetPoint();
-        String arrivePoint = valuesRequester.askStringValue();
+        String arrivePoint = valuesRequester.askLocation();
         setRaceArrivePoint(arrivePoint);
     }
 
