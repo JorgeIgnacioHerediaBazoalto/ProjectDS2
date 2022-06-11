@@ -35,6 +35,20 @@ public class Validator {
     }
 
     /**
+     * this method verifies that the number of passengers entering is no more than 5.
+     *
+     * @param quantity total passangers
+     * @return a signal that indicates whether or not the 5 passengers pass or not
+     */
+    public boolean verifyQuantity(int quantity){
+        boolean isAllowed = true;
+        if(quantity > 5){
+            isAllowed = false;
+        }
+        return isAllowed;
+    }
+
+    /**
      * This method helps to validate the user's response.
      * 
      * Helps to validate if the user did not enter a strange character or number.

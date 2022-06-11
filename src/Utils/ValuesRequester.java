@@ -43,6 +43,21 @@ public class ValuesRequester {
     }
 
     /**
+     * method that asks the user for the number of passengers verifying that the value entered is not greater than 5.
+     *
+     * @param quantity total number of passengers admitted by the client.
+     * @return a quantity not exceeding 5.
+     */
+    public int askIntPassengers(int quantity){
+        while(!validator.verifyQuantity(quantity)){
+            printer.printMessage("Only up to five passengers are allowed!, try again: ","red");
+            quantity = askIntValue();
+        }
+        return quantity;
+    }
+
+
+    /**
      * Method to ask the user a string value validating it.
      * It will ask the user to introduce a string value.
      *

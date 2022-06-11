@@ -70,7 +70,7 @@ public class RaceController implements Controlable{
 
     public void askPassangers() {
         raceView.printAskTheNUmberOfPassengers();
-        int passangers = valuesRequester.askIntValue();
+        int passangers = valuesRequester.askIntPassengers(valuesRequester.askIntValue());
         setRacePassangers(passangers);
     }
 
