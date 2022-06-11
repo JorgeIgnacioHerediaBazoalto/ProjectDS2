@@ -12,7 +12,7 @@ import View.*;
  */
 public class TaxerController {
     protected Taxer taxerModel;
-    private final TaxerMenuController taxerMenuController;
+    private final TaxerMenuView taxerMenuView;
     protected TaxerView taxerView = new TaxerView();
     protected ClientController clientController;
     protected ClientView clientView = new ClientView();
@@ -27,7 +27,7 @@ public class TaxerController {
      */
     public TaxerController(Taxer taxerModel) {
         this.taxerModel = taxerModel;
-        this.taxerMenuController = new TaxerMenuController(taxerView);
+        this.taxerMenuView = new TaxerMenuView(taxerView);
         this.taxerRideController = new TaxerRideController(taxerModel, taxerView);
         this.clientController = new ClientController(client ,clientView);
     }
@@ -37,7 +37,7 @@ public class TaxerController {
      */
     public void startTaxerMenu() {
         taxerModel.setTaxisDriversList();
-        taxerMenuController.startMenu();
+        taxerMenuView.startMenu();
     }
 
     /**
@@ -46,7 +46,7 @@ public class TaxerController {
      *
      */
     public void askClientInformation() {
-        if(taxerMenuController.getIfStart()) {
+        if(taxerMenuView.getIfStart()) {
             clientController.askClientInfo();
             taxerRideController.setClientNameRide(client.getName());
         }

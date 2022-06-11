@@ -10,7 +10,7 @@ import View.TaxerView;
  *
  * @author Santiago Caballero
  */
-public class TaxerMenuController {
+public class TaxerMenuView {
 
     private final ValuesRequester valuesRequester;
     private String startRequestAnswer;
@@ -23,7 +23,7 @@ public class TaxerMenuController {
      *
      * @param taxerMenuView received to send the messages and information to print.
      */
-    public TaxerMenuController(TaxerView taxerMenuView) {
+    public TaxerMenuView(TaxerView taxerMenuView) {
         this.taxerMenuView = taxerMenuView;
         this.valuesRequester = new ValuesRequester();
         this.colors = new Colors();
