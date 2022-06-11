@@ -10,7 +10,7 @@ import View.ClientView;
  *
  * @author Karina Aguirre.
  */
-public class ClientController {
+public class ClientController implements Controlable{
     private final Client clientModel;
     private final ClientView clientView;
     protected ValuesRequester valuesRequester;
@@ -119,7 +119,7 @@ public class ClientController {
         askClientName();
         askClientLocation();
         askClientPhone();
-        clientGeneralInformation();
+        generalInformation();
         askIfSure();
         getIfSure();
     }
@@ -131,8 +131,10 @@ public class ClientController {
      * @see Client
      * @see ClientView
      */
-    public void clientGeneralInformation(){
-        clientView.printTitleInformationOfClient();
+
+    @Override
+    public void generalInformation() {
+        clientView.title();
         clientView.printMessage(clientView.showGeneralInformationClient(clientModel.getName(),
                 clientModel.getPhoneNumber(),clientModel.getLocation()));
     }

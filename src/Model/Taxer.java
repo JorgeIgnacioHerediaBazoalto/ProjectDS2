@@ -17,6 +17,7 @@ public class Taxer {
     ArrayList<Taxi> taxisAvailable;
     ArrayList<Driver> driversAvailable;
     boolean areTaxisAvailable;
+    private String currency;
 
     /**
      * This is the constructor method of Taxer
@@ -29,6 +30,7 @@ public class Taxer {
         this.taxisAvailable = new ArrayList<>();
         this.driversAvailable = new ArrayList<>();
         this.areTaxisAvailable = false;
+        this.setCurrency("BOB");
     }
 
     public void addTaxi(Taxi taxi) {
@@ -136,6 +138,14 @@ public class Taxer {
 
     public void removeTaxi(Taxi taxi) {
         taxis.remove(taxi);
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
    /* public Driver driverFromList(ArrayList<Driver> drivers){

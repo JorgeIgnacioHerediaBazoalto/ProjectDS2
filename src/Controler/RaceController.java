@@ -9,7 +9,7 @@ import View.RaceView;
  * @author Denis Jorge Gandarillas Delgado
  */
 
-public class RaceController {
+public class RaceController implements Controlable{
 
 
     private final Race race;
@@ -17,6 +17,7 @@ public class RaceController {
     protected ValuesRequester valuesRequester;
     protected String orderAnswer;
     protected boolean order;
+    private String currency;
 
     /**
      * RaceController class constructor method
@@ -29,6 +30,7 @@ public class RaceController {
         this.race = race;
         this.raceView = raceView;
         this.valuesRequester = new ValuesRequester();
+        this.currency = null;
     }
 
     public void setClientName(String clientName) {
@@ -52,6 +54,8 @@ public class RaceController {
         race.setDateTime();
     }
 
+    public void setCurrency(String currency) { this.currency = currency;}
+
     public void askStartPoint() {
         raceView.printAskTheStartPoint();
         String startPoint = valuesRequester.askStringValue();
@@ -59,13 +63,13 @@ public class RaceController {
     }
 
     public void askArrivePoint() {
-        raceView.printAskTheArrivetPoint();
+        raceView.printAskTheArrivalPoint();
         String arrivePoint = valuesRequester.askStringValue();
         setRaceArrivePoint(arrivePoint);
     }
 
     public void askPassangers() {
-        raceView.printAskTheNUmberOfPassangers();
+        raceView.printAskTheNUmberOfPassengers();
         int passangers = valuesRequester.askIntValue();
         setRacePassangers(passangers);
     }
@@ -86,16 +90,22 @@ public class RaceController {
             askInfo();
         }
         order = false;
-        raceView.printLoadStyle();
+        raceView.printLookingTaxi();
     }
 
     public void askInfo() {
         askStartPoint();
         askArrivePoint();
         askPassangers();
-        raceActualData();
+        racePartialInformation();
         askIfSureOfInformation();
         sureOfInformation();
+    }
+
+    public void racePartialInformation() {
+        raceView.printerTheInformationOfRace();
+        race.setCost();
+        raceView.showRaceData(race.getCost(),race.getStartingPoint(),race.getArrivalPoint(),race.getPassengerCount(), currency);
     }
 
     /**
@@ -104,15 +114,10 @@ public class RaceController {
      * @see Race
      * @see RaceView
      */
-
-    public void raceInformation(){
-        raceView.printTheGeneralInformationOfRace();
+    @Override
+    public void generalInformation() {
+        raceView.title();
         raceView.printMessage(raceView.showInformationRace(race.getNameDriver(), race.getNameClient(), race.getCost(),
-                race.getStartingPoint(), race.getArrivalPoint(), race.getPassengerCount(), race.getDateTime()));
-    }
-
-    public void raceActualData() {
-        raceView.printerTheInformationOfRace();
-        raceView.showRaceData(race.getCost(),race.getStartingPoint(),race.getArrivalPoint(),race.getPassengerCount());
+                race.getStartingPoint(), race.getArrivalPoint(), race.getPassengerCount(), race.getDateTime(), currency));
     }
 }

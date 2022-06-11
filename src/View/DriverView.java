@@ -1,5 +1,4 @@
 package View;
-import Utils.Printer;
 
 /**
  * This class has the function of print information about the driver
@@ -11,18 +10,11 @@ import Utils.Printer;
  * @author Sebastian Barra
  */
 
-public class DriverView {
+public class DriverView extends Printable{
 
-    Printer printer = new Printer();
-
-    /**
-     * This method prints in console the message that will be entered in message
-     *
-     * @param message driver info
-     */
-
-    public void printMessage(String message) {
-        printer.printMessage(message);
+    @Override
+    public void title() {
+        printMessage("\n"+colors.BLUE_BACKGROUND+ "INFORMATION FROM THE DRIVER"+colors.RESET + "\n");
     }
 
     /**

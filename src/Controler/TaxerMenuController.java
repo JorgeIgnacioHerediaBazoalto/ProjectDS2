@@ -43,7 +43,7 @@ public class TaxerMenuController {
      * the method is called before giving the personal information
      */
     private void askIfStart() {
-        taxerMenuView.printMessage("Do you want to start the App ?", colors.WHITE_BOLD_BRIGHT);
+        taxerMenuView.printMessage("Do you want to start the App?: ", colors.WHITE_BOLD_BRIGHT);
         startRequestAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 

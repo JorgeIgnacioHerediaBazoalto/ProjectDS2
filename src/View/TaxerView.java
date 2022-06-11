@@ -4,7 +4,7 @@ import Utils.Colors;
 import Utils.Printer;
 
 
-public class TaxerView {
+public class TaxerView extends Printable{
     private final Printer printer;
     private final Colors colors;
 
@@ -13,19 +13,12 @@ public class TaxerView {
         this.colors = new Colors();
     }
 
-    public void printMessage(String message) {
-        printer.printMessage(message);
-    }
-
-    public void printMessage(String message, String color) {
-        printer.printMessage(color+message+colors.RESET);
-    }
-
-    public void printMessage(String message, boolean delay) {
-        printer.printMessage(message,delay);
-    }
-
-    public void printLoadStyle() {
+    public void printLoading() {
         printer.printLoadMessage("Loading"," .",4);
+    }
+
+    @Override
+    public void title() {
+        printMessage("\n"+colors.CYAN_BACKGROUND+ "WE ARE TAXER ;)"+colors.RESET + "\n");
     }
 }

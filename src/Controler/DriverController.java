@@ -10,7 +10,7 @@ import View.DriverView;
  * @author Sebastian Barra
  */
 
-public class DriverController {
+public class DriverController implements Controlable{
 
     Driver driverModel;
     DriverView driverView;
@@ -33,10 +33,10 @@ public class DriverController {
     /**
      * This method is in charge of printing in console the general informarion of driver
      */
-
-    public void GeneralInfoDriver(){
+    @Override
+    public void generalInformation() {
+        driverView.title();
         driverView.printMessage(driverView.ShowGeneralInfoDriver(driverModel.getName(), driverModel.getPhoneNumber(), driverModel.getAgeDriver(),
-                                driverModel.getLicenseNumber(), driverModel.getRacesAmount()));
+                driverModel.getLicenseNumber(), driverModel.getRacesAmount()));
     }
-
 }

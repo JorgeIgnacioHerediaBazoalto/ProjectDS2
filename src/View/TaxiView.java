@@ -1,7 +1,4 @@
 package View;
-import Utils.Printer;
-import Utils.Colors;
-import Utils.PrintStyle;
 
 /**
  * This is the TaxiView class, this class has the job of printing info of taxi in console
@@ -10,20 +7,14 @@ import Utils.PrintStyle;
  *
  * @author Jorge Heredia
  */
-public class TaxiView {
-    protected Printer printer = new Printer();
-    protected Colors colors = new Colors();
-    protected PrintStyle printStyle = new PrintStyle();
+public class TaxiView extends Printable {
 
-
-    /**
-     * This method print message in console.
-     * @param message any message.
-     */
-    public void printMessage(String message) {
-        printer.printMessage(message);
+    @Override
+    public void title() {
+        printMessage("\n"+colors.PURPLE_BACKGROUND+"INFORMATION FROM THE TAXI"+colors.RESET+"\n");
     }
-    public void titleInformationOfTaxi(){printMessage("\n"+colors.PURPLE_BACKGROUND+"INFORMATION FROM THE TAXI"+colors.RESET+"\n");}
+
+//    public void titleInformationOfTaxi(){printMessage("\n"+colors.PURPLE_BACKGROUND+"INFORMATION FROM THE TAXI"+colors.RESET+"\n");}
 
     /**
      * This method create the message it contains general information or identification information.

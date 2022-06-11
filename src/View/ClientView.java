@@ -1,7 +1,4 @@
 package View;
-import Utils.Printer;
-import Utils.Colors;
-import Utils.PrintStyle;
 
 /**
  * This class print the information about the client.
@@ -9,19 +6,13 @@ import Utils.PrintStyle;
  *
  * @author Karina Aguirre.
  */
-public class ClientView {
-    protected Printer printer = new Printer();
-    protected PrintStyle printStyle = new PrintStyle();
-    protected Colors colors = new Colors();
+public class ClientView extends Printable{
 
-    /**
-     * his method prints in console the message that will be entered in message.
-     *
-     * @param message client information.
-     */
-    public void printMessage(String message) {
-        printer.printMessage(message);
+    @Override
+    public void title() {
+        printMessage("\n"+colors.BLUE_BACKGROUND+ "INFORMATION FROM THE CLIENT"+colors.RESET + "\n");
     }
+
     public void printAskTheNameClient(){
         printMessage(colors.PURPLE_BOLD+"Enter your name please: ");
     }
@@ -31,11 +22,9 @@ public class ClientView {
     public void printAskTheLocationClient(){
         printMessage(colors.PURPLE_BOLD+"Enter your home location please: ");
     }
+
     public void printIfTheAboutInformation(){
-        printMessage("\nAre you sure about your information?");
-    }
-    public void printTitleInformationOfClient(){
-        printMessage("\n"+colors.BLUE_BACKGROUND+ "INFORMATION FROM THE CLIENT"+colors.RESET + "\n");
+        printMessage("\nAre you sure about your information?: ");
     }
 
     /**

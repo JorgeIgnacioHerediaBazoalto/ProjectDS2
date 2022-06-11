@@ -1,7 +1,6 @@
 package Controler;
 
 import Model.Race;
-import Model.Simulator;
 import Model.Taxer;
 import Model.Taxi;
 import Utils.*;
@@ -38,13 +37,14 @@ public class TaxerRideController {
         this.raceController = new RaceController(race, raceView);
         this.taxerModel = taxerModel;
         this.ifOrder = true;
+        raceController.setCurrency(taxerModel.getCurrency());
     }
 
     /**
      * Method to set a message at the beginning just to give style to our app
      */
     private void setAppStartMessage() {
-        taxerRideView.printLoadStyle();
+        taxerRideView.printLoading();
         taxerRideView.printMessage(colors.BLUE_BOLD_BRIGHT+"\n--------- "+colors.RESET+
                 colors.WHITE_BOLD_BRIGHT+"TAXER"+colors.RESET+
                 colors.BLUE_BOLD_BRIGHT+" ---------"+colors.RESET+"\n",true);
@@ -54,7 +54,7 @@ public class TaxerRideController {
      * Method to ask if the user is sure or not to order a taxi
      */
     private void askIfOrder() {
-        taxerRideView.printMessage("\nDo you want to order a Taxi ?", colors.WHITE_BOLD_BRIGHT);
+        taxerRideView.printMessage("\nDo you want to order a Taxi?: ", colors.WHITE_BOLD_BRIGHT);
         taxiRequestAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
@@ -69,7 +69,7 @@ public class TaxerRideController {
     public void instanceTaxiController(Taxi taxiModel) {
         TaxiView taxiView = new TaxiView();
         TaxiController taxiController = new TaxiController(taxiModel, taxiView);
-        taxiController.taxiGeneralInfo();
+        showInfoGeneralOfThing(taxiController);
     }
 
     private void setRaceAttributes(Taxi taxiAvailable) {
@@ -79,12 +79,12 @@ public class TaxerRideController {
         taxiAvailable.addTaxiTrip(race);
     }
 
-    private void startTripifAvailable() {
+    private void startTripIfAvailable() {
         if (taxerModel.getTaxisAvailable().size() > 0) {
             Taxi taxiAvailable = taxerModel.getTaxisAvailable().get(0);
             setRaceAttributes(taxiAvailable);
             taxerRideView.printMessage("\n A taxi available is starting the ride \n");
-            raceController.raceInformation();
+            showInfoGeneralOfThing(raceController);
             instanceTaxiController(taxiAvailable);
         }
         else {
@@ -118,7 +118,7 @@ public class TaxerRideController {
             taxerModel.addIteration();
             startApp();
         }
-        taxerRideView.printMessage("Thanks for using the app");
+        taxerRideView.printMessage("\nThanks for using the app");
     }
     /**
      * This method sets an end message
@@ -135,8 +135,20 @@ public class TaxerRideController {
         setAppStartMessage();
         raceController.askRaceInfo();
         taxerModel.startLookingTaxi();
-        startTripifAvailable();
+        startTripIfAvailable();
         askIfOrder();
         getIfOrder();
+    }
+
+    /**
+     * This method allows general information of the controllers with information that can be shown
+     * <p>
+     *     "Thing" refers to any controller that have implemented class Controlable.
+     *     Implement Controlable when the controller with its model and view has general information to print
+     * </p>
+     * @param controlable any class implement Controlable
+     */
+    public void showInfoGeneralOfThing(Controlable controlable){
+        controlable.generalInformation();
     }
 }

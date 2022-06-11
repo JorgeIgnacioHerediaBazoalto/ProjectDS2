@@ -8,7 +8,7 @@ import View.TaxiView;
  *
  * @author Jorge Heredia
  */
-public class TaxiController {
+public class TaxiController implements Controlable{
     Taxi taxiModel;
     TaxiView taxiView;
 
@@ -23,18 +23,6 @@ public class TaxiController {
     }
 
     /**
-     * This method pass the parameters of the taxi to taxi View so that it can display the general information of taxi.
-     *
-     * @see Taxi
-     * @see TaxiView
-     */
-    public void taxiGeneralInfo() {
-        taxiView.titleInformationOfTaxi();
-        taxiView.printMessage(taxiView.showGeneralInfoTaxi(taxiModel.getNumberPlate(), taxiModel.getCarColor(),
-                taxiModel.getCarModel(), taxiModel.getCapacity(),taxiModel.getTaxiTrips().size()));
-    }
-
-    /**
      * This method pass the parameters of the taxi to taxi View so that it can display the availability information of car.
      *
      * @see Taxi
@@ -42,5 +30,18 @@ public class TaxiController {
      */
     public void taxiIsDisponible() {
         taxiView.printMessage(taxiView.showIsAvailable(taxiModel.getNumberPlate(), taxiModel.isAvailability()));
+    }
+
+    /**
+     * This method pass the parameters of the taxi to taxi View so that it can display the general information of taxi.
+     *
+     * @see Taxi
+     * @see TaxiView
+     */
+    @Override
+    public void generalInformation() {
+        taxiView.title();
+        taxiView.printMessage(taxiView.showGeneralInfoTaxi(taxiModel.getNumberPlate(), taxiModel.getCarColor(),
+                taxiModel.getCarModel(), taxiModel.getCapacity(),taxiModel.getTaxiTrips().size()));
     }
 }

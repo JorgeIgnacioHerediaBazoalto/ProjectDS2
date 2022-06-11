@@ -1,9 +1,7 @@
 package View;
 
-import java.time.LocalDateTime;
-import Utils.Printer;
-import Utils.Colors;
-import Utils.PrintStyle;
+import java.text.DecimalFormat;
+
 
 /**
  * This class will print race information.
@@ -14,33 +12,25 @@ import Utils.PrintStyle;
  *
  * @author Denis Jorge Gandarillas Delgado
  */
-public class RaceView {
+public class RaceView extends Printable{
 
-    protected Printer printer = new Printer();
-    protected Colors colors = new Colors();
-    protected PrintStyle printStyle = new PrintStyle();
+    private final DecimalFormat formatCost = new DecimalFormat("#.00");
 
-    /**
-     * This method prints the information on the console.
-     *
-     * @param message Saves the message to be printed.
-     */
-
-    public void printMessage(String message){
-        printer.printMessage(message);
+    @Override
+    public void title() {
+        printMessage("\n"+colors.CYAN_BACKGROUND+ "INFORMATION GENERAL FROM THE RACE"+colors.RESET + "\n");
     }
 
-    public void printLoadStyle() {
-        printer.printLoadMessage("Looking for a taxi available"," .",4);
+    public void printLookingTaxi() {
+        printLoadMessage("Looking for a taxi available"," .",4);
     }
     public void printAskTheStartPoint(){printMessage(colors.YELLOW_BOLD+"Enter your start point please: ");}
-    public void printAskTheArrivetPoint(){printMessage(colors.YELLOW_BOLD+"Enter your arrive point please: ");}
-    public void printAskTheNUmberOfPassangers(){printMessage(colors.YELLOW_BOLD+"Enter the number of passangers please: ");}
+    public void printAskTheArrivalPoint(){printMessage(colors.YELLOW_BOLD+"Enter your arrive point please: ");}
+    public void printAskTheNUmberOfPassengers(){printMessage(colors.YELLOW_BOLD+"Enter the number of passengers please: ");}
     public void printIfTheAboutInformation(){
-        printMessage("\nAre you sure about this information?");
+        printMessage("\nIs correct the information of the ride?: ");
     }
     public void printerTheInformationOfRace(){printMessage("\n"+colors.GREEN_BACKGROUND+ "INFORMATION FROM THE RACE"+colors.RESET + "\n");}
-    public void printTheGeneralInformationOfRace(){printMessage("\n"+colors.CYAN_BACKGROUND+ "INFORMATION GENERAL FROM THE RACE"+colors.RESET + "\n");}
     /**
      *This method is responsible for creating the message to be printed.
      *
@@ -55,18 +45,18 @@ public class RaceView {
      */
 
     public String showInformationRace(String nameDriver, String nameClient, double costRace, String startingPoint,
-                                      String arrivalPoint, int passengerCount, String dateTime){
+                                      String arrivalPoint, int passengerCount, String dateTime, String currency){
         return colors.CYAN_BOLD+"\nDRIVER: "+colors.WHITE_BOLD_BRIGHT+nameDriver+
                 colors.CYAN_BOLD+ "\nCLIENT: "+colors.WHITE_BOLD_BRIGHT+nameClient+
-                colors.CYAN_BOLD+"\nCOST: "+colors.WHITE_BOLD_BRIGHT+costRace+
+                colors.CYAN_BOLD+"\nCOST: "+colors.WHITE_BOLD_BRIGHT+formatCost.format(costRace)+" "+currency+
                 colors.CYAN_BOLD+"\nSTARTING LOCATION: "+colors.WHITE_BOLD_BRIGHT+startingPoint+
                 colors.CYAN_BOLD+"\nARRIVAL LOCATION: "+colors.WHITE_BOLD_BRIGHT+arrivalPoint+
                 colors.CYAN_BOLD+"\nNUMBER OF PASSENGERS: "+colors.WHITE_BOLD_BRIGHT+passengerCount+
                 colors.CYAN_BOLD+"\nDATE/TIME OF THE RACE: "+colors.WHITE_BOLD_BRIGHT+dateTime+"\n";
     }
 
-    public void showRaceData(double costRace, String startingPoint, String arrivalPoint, int passengerCount) {
-        printer.printMessage(colors.LIGHT_GREEN + "\nCOST: "+colors.WHITE_BOLD_BRIGHT+costRace+
+    public void showRaceData(double costRace, String startingPoint, String arrivalPoint, int passengerCount, String currency) {
+        printMessage(colors.LIGHT_GREEN + "\nCOST: "+colors.WHITE_BOLD_BRIGHT+formatCost.format(costRace)+" "+currency+
                 colors.LIGHT_GREEN + "\nSTARTING LOCATION: "+colors.WHITE_BOLD_BRIGHT+startingPoint+
                 colors.LIGHT_GREEN + "\nARRIVAL LOCATION: "+colors.WHITE_BOLD_BRIGHT+arrivalPoint+
                 colors.LIGHT_GREEN + "\nNUMBER OF PASSENGERS: "+colors.WHITE_BOLD_BRIGHT+passengerCount+"\n");

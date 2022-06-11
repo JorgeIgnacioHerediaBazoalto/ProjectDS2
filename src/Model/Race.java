@@ -32,11 +32,11 @@ public class Race {
 
     public Race() {
         this.nameDriver = null;
-        this.cost = Math.random()*(50-20)*20;
+        this.cost = 0;
         this.startingPoint = null;
         this.arrivalPoint = null;
         this.passengerCount = 0;
-        dateTime = "";
+        this.dateTime = "";
     }
 
     /**
@@ -51,12 +51,11 @@ public class Race {
 
     /**
      * This method helps to set a value on the cost variable.
-     *
-     * @param cost Cost of the race.
+     * Generated randomly because for the moment, we do not calculate the trip cost in base of the distance.
      */
 
-    public void setCost(double cost) {
-        this.cost = cost;
+    public void setCost() {
+        this.cost = Math.random()*(50-20+1)+20;
     }
 
     /**
