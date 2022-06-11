@@ -58,13 +58,13 @@ public class RaceController implements Controlable{
 
     public void askStartPoint() {
         raceView.printAskTheStartPoint();
-        String startPoint = valuesRequester.askStringValue();
+        String startPoint = valuesRequester.askLocation();
         setRaceStartPoint(startPoint);
     }
 
     public void askArrivePoint() {
         raceView.printAskTheArrivalPoint();
-        String arrivePoint = valuesRequester.askStringValue();
+        String arrivePoint = valuesRequester.askLocation();
         setRaceArrivePoint(arrivePoint);
     }
 

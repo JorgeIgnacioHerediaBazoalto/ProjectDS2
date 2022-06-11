@@ -58,6 +58,43 @@ public class ValuesRequester {
         return scanner.nextLine();
     }
 
+    /**
+     * Method where the user enters his name and is validated.
+     * 
+     * It will validate if the user simply entered letters, which are validated by regular expressions.
+     * 
+     * @return the name entered
+     */
+
+    public String askName(){
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        while (!validator.verifyName(name)) {
+            printer.printMessage("Introduce valid letters: ","red");
+            scanner = new Scanner(System.in);
+            name = scanner.nextLine();
+        }
+        return name;
+    }
+
+    /**
+     * Method in which the user enters his location and is validated.
+     * 
+     * It will only accept letters and numbers, which are validated by regular expressions.
+     * 
+     * @return
+     */
+
+    public String askLocation(){
+        Scanner scanner = new Scanner(System.in);
+        String location = scanner.nextLine();
+        while (!validator.verifyLocation(location)) {
+            printer.printMessage("Introduce valid letters and numbers: ","red");
+            scanner = new Scanner(System.in);
+            location = scanner.nextLine();
+        }
+        return location;
+    }
 
     /**
      * Method to prompt the user for a string value equal to the expected values.
