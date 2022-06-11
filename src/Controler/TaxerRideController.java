@@ -15,6 +15,7 @@ import View.*;
 public class TaxerRideController {
     private final ValuesRequester valuesRequester;
     private String taxiRequestAnswer;
+
     protected Colors colors;
     protected TaxerView taxerRideView;
     protected Taxer taxerModel;
@@ -54,7 +55,7 @@ public class TaxerRideController {
      * Method to ask if the user is sure or not to order a taxi
      */
     private void askIfOrder() {
-        taxerRideView.printMessage("\nDo you want to order a Taxi?: ", colors.WHITE_BOLD_BRIGHT);
+        taxerRideView.printMessage("\nDo you want to order a Taxi?: ");
         taxiRequestAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
@@ -69,7 +70,8 @@ public class TaxerRideController {
     public void instanceTaxiController(Taxi taxiModel) {
         TaxiView taxiView = new TaxiView();
         TaxiController taxiController = new TaxiController(taxiModel, taxiView);
-        showInfoGeneralOfThing(taxiController);
+        taxiController.generalInformation();
+        taxiController.ridesGeneralInformation();
     }
 
     private void setRaceAttributes(Taxi taxiAvailable) {
@@ -83,12 +85,11 @@ public class TaxerRideController {
         if (taxerModel.getTaxisAvailable().size() > 0) {
             Taxi taxiAvailable = taxerModel.getTaxisAvailable().get(0);
             setRaceAttributes(taxiAvailable);
-            taxerRideView.printMessage("\n A taxi available is starting the ride \n");
-            showInfoGeneralOfThing(raceController);
-            instanceTaxiController(taxiAvailable);
+            taxerRideView.taxiAvaliableMessage();
+            showGeneralInfo(taxiAvailable);
         }
         else {
-            taxerRideView.printMessage("\nThere aren't taxis available for the moment\n");
+            taxerRideView.taxiNotAvailableMessage();
         }
     }
 
@@ -146,9 +147,10 @@ public class TaxerRideController {
      *     "Thing" refers to any controller that have implemented class Controlable.
      *     Implement Controlable when the controller with its model and view has general information to print
      * </p>
-     * @param controlable any class implement Controlable
+     * @param taxiAvailable to show the general information of the ride and taxi
      */
-    public void showInfoGeneralOfThing(Controlable controlable){
-        controlable.generalInformation();
+    public void showGeneralInfo(Taxi taxiAvailable){
+        raceController.generalInformation();
+        instanceTaxiController(taxiAvailable);
     }
 }

@@ -1,5 +1,10 @@
 package View;
 
+import Controler.RaceController;
+import Model.Race;
+
+import java.util.ArrayList;
+
 /**
  * This is the TaxiView class, this class has the job of printing info of taxi in console
  *
@@ -8,6 +13,7 @@ package View;
  * @author Jorge Heredia
  */
 public class TaxiView extends Printable {
+    private RaceView raceView;
 
     @Override
     public void title() {
@@ -32,6 +38,26 @@ public class TaxiView extends Printable {
                 colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+"\nCar color:"+colors.RESET+" " + colors.WHITE_BOLD_BRIGHT+ carColor +
                 colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+ "\nCapacity:"+colors.RESET+" " + colors.WHITE_BOLD_BRIGHT+ capacity+
                 colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+"\nTaxi Trips:"+colors.RESET+" "+ colors.WHITE_BOLD_BRIGHT+ taxiTrips+"\n";
+    }
+
+    public void printRidesInformation(ArrayList<Race> rides) {
+        if (!rides.isEmpty()) {
+            System.out.println();
+            System.out.println("----TAXI RIDES-----");
+            System.out.println();
+            printEachRaceInfo(rides);
+        }
+    }
+
+    private void printEachRaceInfo(ArrayList<Race> rides) {
+        for (Race race:rides
+        ) {
+            raceView = new RaceView();
+            System.out.println();
+            System.out.println("Ride Number "+(rides.indexOf(race)+1));
+            RaceController raceController = new RaceController(race,raceView);
+            raceController.generalInformation();
+        }
     }
 
     /**

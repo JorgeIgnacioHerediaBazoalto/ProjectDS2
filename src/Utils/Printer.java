@@ -42,7 +42,9 @@ public class Printer {
      * @param color the color of the text
      */
     public void printMessage(String message, String color) {
-        System.out.print(color + message + colors.RESET);
+        if (color.equals("red")) {
+            System.out.print(colors.RED_BOLD_BRIGHT + message + colors.RESET);
+        }
     }
 
     /**

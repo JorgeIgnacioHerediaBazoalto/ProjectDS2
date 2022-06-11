@@ -32,6 +32,10 @@ public class TaxiController implements Controlable{
         taxiView.printMessage(taxiView.showIsAvailable(taxiModel.getNumberPlate(), taxiModel.isAvailability()));
     }
 
+    public void ridesGeneralInformation() {
+        taxiView.printRidesInformation(taxiModel.getTaxiTrips());
+    }
+
     /**
      * This method pass the parameters of the taxi to taxi View so that it can display the general information of taxi.
      *
@@ -41,7 +45,7 @@ public class TaxiController implements Controlable{
     @Override
     public void generalInformation() {
         taxiView.title();
-        taxiView.printMessage(taxiView.showGeneralInfoTaxi(taxiModel.getNumberPlate(), taxiModel.getCarColor(),
-                taxiModel.getCarModel(), taxiModel.getCapacity(),taxiModel.getTaxiTrips().size()));
+        taxiView.printMessage(taxiView.showGeneralInfoTaxi(taxiModel.getNumberPlate(), taxiModel.getCarModel(),
+                taxiModel.getCarColor(), taxiModel.getCapacity(),taxiModel.getTaxiTrips().size()));
     }
 }

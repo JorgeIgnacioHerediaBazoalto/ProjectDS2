@@ -27,7 +27,7 @@ public class TaxerController {
      */
     public TaxerController(Taxer taxerModel) {
         this.taxerModel = taxerModel;
-        this.taxerMenuView = new TaxerMenuView(taxerView);
+        this.taxerMenuView = new TaxerMenuView();
         this.taxerRideController = new TaxerRideController(taxerModel, taxerView);
         this.clientController = new ClientController(client ,clientView);
     }
@@ -57,8 +57,10 @@ public class TaxerController {
      *
      */
     public void startTaxerFuntion() {
-        if(clientController.getIfSure()) taxerRideController.startApplication();
+        if(taxerMenuView.getIfStart() && clientController.getIfSure()) taxerRideController.startApplication();
+        //else taxerMenuView.offMessage();
     }
+
     /**
      * This method is used to ask the necessary information of the client for the ride
      * the method will start just if the user is sure about his or her information.

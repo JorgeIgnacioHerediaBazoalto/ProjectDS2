@@ -1,8 +1,6 @@
-package Controler;
+package View;
 
-import Utils.ValuesRequester;
-import Utils.Colors;
-import View.TaxerView;
+import Utils.*;
 
 /**
  * This class is to control the messages to display of the start menu of the app
@@ -15,16 +13,15 @@ public class TaxerMenuView {
     private final ValuesRequester valuesRequester;
     private String startRequestAnswer;
     protected Colors colors;
-    protected TaxerView taxerMenuView;
+    protected Printer printer;
 
     /**
      * This is the constructor method it initializes the util classes to set and send information to the printer.
      * It recieves the view class of taxer to send the messages to show a menu.
      *
-     * @param taxerMenuView received to send the messages and information to print.
      */
-    public TaxerMenuView(TaxerView taxerMenuView) {
-        this.taxerMenuView = taxerMenuView;
+    public TaxerMenuView() {
+        this.printer = new Printer();
         this.valuesRequester = new ValuesRequester();
         this.colors = new Colors();
     }
@@ -33,7 +30,7 @@ public class TaxerMenuView {
      * This method sets the welcome message at the beginning of the app.
      */
     private void setWelcomeMessage() {
-        taxerMenuView.printMessage(colors.BLUE_BOLD_BRIGHT+"\n--------- "+colors.RESET+
+        printer.printMessage(colors.BLUE_BOLD_BRIGHT+"\n--------- "+colors.RESET+
                 colors.WHITE_BOLD_BRIGHT+"WELCOME TO TAXER"+colors.RESET+
                 colors.BLUE_BOLD_BRIGHT+" ---------"+colors.RESET+"\n",true);
     }
@@ -43,7 +40,7 @@ public class TaxerMenuView {
      * the method is called before giving the personal information
      */
     private void askIfStart() {
-        taxerMenuView.printMessage("Do you want to start the App?: ", colors.WHITE_BOLD_BRIGHT);
+        printer.printMessage("Do you want to start the App?: ");
         startRequestAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
@@ -57,7 +54,7 @@ public class TaxerMenuView {
         boolean willStart;
         if (startRequestAnswer.equalsIgnoreCase("Yes")) willStart = true;
         else {
-            offMessage();
+            //offMessage();
             willStart = false;
         }
         return
@@ -67,9 +64,9 @@ public class TaxerMenuView {
     /**
      * This method sets an end message
      */
-    private void offMessage() {
-        taxerMenuView.printMessage(colors.BLUE_BOLD_BRIGHT+"----"+
-                colors.WHITE_BOLD_BRIGHT+ "Ok come back when you want to start usign the app"
+    public void offMessage() {
+        printer.printMessage(colors.BLUE_BOLD_BRIGHT+"----"+
+                colors.WHITE_BOLD_BRIGHT+ "Ok come back when you want to start using the app"
                 +colors.BLUE_BOLD_BRIGHT+ "----"+colors.RESET);
     }
 
