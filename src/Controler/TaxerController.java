@@ -58,7 +58,7 @@ public class TaxerController {
      */
     public void startTaxerFuntion() {
         if(taxerMenuView.getIfStart() && clientController.getIfSure()) taxerRideController.startApplication();
-        //else taxerMenuView.offMessage();
+        else taxerMenuView.offMessage();
     }
 
     /**
