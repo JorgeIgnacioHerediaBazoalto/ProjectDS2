@@ -29,7 +29,6 @@ public class Race {
      *     passengerCount The number of passengers entering the cab.
      * </p>
      */
-
     public Race() {
         this.nameClient = null;
         this.nameDriver = null;
@@ -46,7 +45,6 @@ public class Race {
      *
      * @return cost
      */
-
     public double getCost() {
         return cost;
     }
@@ -55,7 +53,6 @@ public class Race {
      * This method helps to set a value on the cost variable.
      * Generated randomly because for the moment, we do not calculate the trip cost in base of the distance.
      */
-
     public void setCost() {
         this.cost = Math.random()*(50-20+1)+20;
     }
@@ -65,7 +62,6 @@ public class Race {
      *
      * @return nameDriver
      */
-
     public String getNameDriver() {
         return nameDriver;
     }
@@ -75,7 +71,6 @@ public class Race {
      *
      * @param nameDriver Name of the assigned driver.
      */
-
     public void setNameDriver(String nameDriver) {
         this.nameDriver = nameDriver;
     }
@@ -85,7 +80,6 @@ public class Race {
      *
      * @return nameClient
      */
-
     public String getNameClient() {
         return nameClient;
     }
@@ -95,7 +89,6 @@ public class Race {
      *
      * @param nameClient Name of the client who requested the service.
      */
-
     public void setNameClient(String nameClient) {
         this.nameClient = nameClient;
     }
@@ -105,7 +98,6 @@ public class Race {
      *
      * @return startingPoint
      */
-
     public String getStartingPoint() {
         return startingPoint;
     }
@@ -115,7 +107,6 @@ public class Race {
      *
      * @param startingPoint Location of the starting point where the cab picks up the client.
      */
-
     public void setStartingPoint(String startingPoint) {
         this.startingPoint = startingPoint;
     }
@@ -125,7 +116,6 @@ public class Race {
      *
      * @return arrivalPoint
      */
-
     public String getArrivalPoint() {
         return arrivalPoint;
     }
@@ -135,7 +125,6 @@ public class Race {
      *
      * @param arrivalPoint Location of the arrival point where the cab drops off the client.
      */
-
     public void setArrivalPoint(String arrivalPoint) {
         this.arrivalPoint = arrivalPoint;
     }
@@ -145,7 +134,6 @@ public class Race {
      *
      * @return passengerCount
      */
-
     public int getPassengerCount() {
         return passengerCount;
     }
@@ -155,7 +143,6 @@ public class Race {
      *
      * @param passengerCount The number of passengers entering the cab.
      */
-
     public void setPassengerCount(int passengerCount) {
         this.passengerCount = passengerCount;
     }
@@ -165,11 +152,14 @@ public class Race {
      *
      * @return dateTime
      */
-
     public String getDateTime() {
         return dateTime;
     }
 
+    /**
+     * This method returns the value of the variable currency, is a type of money.
+     * @return currency
+     */
     public String getCurrency() {
         return currency;
     }

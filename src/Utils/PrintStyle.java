@@ -18,6 +18,9 @@ public class PrintStyle {
     public  final String BLUE_UNDERLINED = "\033[4;34m";   // BLUE
     public  final String PURPLE_UNDERLINED = "\033[4;35m"; // PURPLE
 
+    /**
+     * This method simulating load, for defect with second delay.
+     */
     public void chargeSimulator() {
         try {
             TimeUnit.SECONDS.sleep(1);
@@ -26,6 +29,12 @@ public class PrintStyle {
         }
     }
 
+    /**
+     * Overloading this method simulating load, specifying the delay time.
+     *
+     * @param messageLoad information to print.
+     * @param quantity time delay.
+     */
     public void chargeSimulator(String messageLoad, int quantity) {
         for (int i = 0; i < quantity; i++) {
             try {

@@ -1,6 +1,5 @@
 package Controler;
 import Model.Client;
-import Utils.ValuesRequester;
 import View.ClientView;
 
 /**
@@ -10,7 +9,7 @@ import View.ClientView;
  *
  * @author Karina Aguirre.
  */
-public class ClientController implements Controlable{
+public class ClientController implements Controllable {
     private final Client clientModel;
     private final ClientView clientView;
 
@@ -106,7 +105,6 @@ public class ClientController implements Controlable{
      * @see Client
      * @see ClientView
      */
-
     @Override
     public void generalInformation() {
         clientView.title();

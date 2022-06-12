@@ -3,10 +3,10 @@ package Model;
 /**
  * This class represents the client and get her information.
  *
- * @see Model.Persona
+ * @see Person
  * @author Karina Aguirre.
  */
-public class Client extends Persona{
+public class Client extends Person {
     protected String location;
     /**
      * This is the constructor method that receives information about the client.

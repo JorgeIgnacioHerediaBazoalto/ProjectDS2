@@ -1,15 +1,14 @@
 package Controler;
 
 import Model.Race;
-import Utils.ValuesRequester;
 import View.RaceView;
 /**
- * This class is responsible for communicating the Race and Raceview classes.
+ * This class is responsible for communicating the Race and RaceView classes.
  *
  * @author Denis Jorge Gandarillas Delgado
  */
 
-public class RaceController implements Controlable{
+public class RaceController implements Controllable {
 
 
     private final Race race;
@@ -21,48 +20,90 @@ public class RaceController implements Controlable{
      * @param race Object of the Race class.
      * @param raceView Class in charge of printing the information.
      */
-
     public RaceController(Race race, RaceView raceView) {
         this.race = race;
         this.raceView = raceView;
     }
 
+    /**
+     * Method that set the name from the client in race.
+     *
+     * @param clientName name client in race information.
+     */
     public void setClientName(String clientName) {
         race.setNameClient(clientName);
     }
+
+    /**
+     * Method that set the start point from the race.
+     * @param startingPoint start point or the place where the customer will be picked up.
+     */
     public void setRaceStartPoint(String startingPoint) {
         race.setStartingPoint(startingPoint);
     }
+
+    /**
+     * Method that set the Arrival point from the race.
+     *
+     * @param arrivalPoint point where dropped off customer
+     */
     public void setRaceArrivePoint(String arrivalPoint) {
         race.setArrivalPoint(arrivalPoint);
     }
-    public void setRacePassangers(int passangers) {
-        race.setPassengerCount(passangers);
+
+    /**
+     * Method that set the number of passengers from the race.
+     *
+     * @param passengers number of passengers.
+     */
+    public void setRacePassengers(int passengers) {
+        race.setPassengerCount(passengers);
     }
 
+    /**
+     * Method that set the driver name from the race.
+     * @param driverName name of the driver assigned to this race.
+     */
     public void setDriverName(String driverName) {
         race.setNameDriver(driverName);
     }
 
+    /**
+     * Method that set the date and time from the race.
+     */
     public void setRaceDate() {
         race.setDateTime();
     }
 
+    /**
+     * Method that ask user about the start point.
+     */
     public void askStartPoint() {
         String startPoint = raceView.printAskTheStartPoint();
         setRaceStartPoint(startPoint);
     }
 
+    /**
+     * Method that ask user about the arrival point.
+     */
     public void askArrivePoint() {
         String arrivePoint = raceView.printAskTheArrivalPoint();
         setRaceArrivePoint(arrivePoint);
     }
 
-    public void askPassangers() {
-        int passangers = raceView.printAskTheNUmberOfPassengers();
-        setRacePassangers(passangers);
+    /**
+     * Method that ask user about number of passengers.
+     */
+    public void askPassengers() {
+        int passengers = raceView.printAskTheNUmberOfPassengers();
+        setRacePassengers(passengers);
     }
 
+    /**
+     * If user want a race we ask the info, after set order taxi to false.
+     *
+     * raceView.printLookingTaxi(); print standby message.
+     */
     public void askRaceInfo() {
         while (!raceView.getOrderRide()) {
             askInfo();
@@ -71,15 +112,21 @@ public class RaceController implements Controlable{
         raceView.printLookingTaxi();
     }
 
+    /**
+     * Method asked all info from the race.
+     */
     public void askInfo() {
         askStartPoint();
         askArrivePoint();
-        askPassangers();
+        askPassengers();
         racePartialInformation();
         raceView.askIfSureOfInformation();
         raceView.sureOfInformation();
     }
 
+    /**
+     * This method passes you partial trip information to ask if you are sure you are sure.
+     */
     public void racePartialInformation() {
         raceView.printerTheInformationOfRace();
         race.setCost();

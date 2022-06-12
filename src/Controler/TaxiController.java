@@ -8,7 +8,7 @@ import View.TaxiView;
  *
  * @author Jorge Heredia
  */
-public class TaxiController implements Controlable{
+public class TaxiController implements Controllable {
     Taxi taxiModel;
     TaxiView taxiView;
 
@@ -22,6 +22,9 @@ public class TaxiController implements Controlable{
         this.taxiView = taxiView;
     }
 
+    /**
+     * Method print the information of all rides of the taxi
+     */
     public void ridesGeneralInformation() {
         taxiView.printRidesInformation(taxiModel.getTaxiTrips());
     }

@@ -21,9 +21,17 @@ public class TaxerController {
 
     /**
      * This is the constructor method of TaxerController and initialize the other controllers
-     * The constructor recieves the other controllers to manage and organize them.
+     * The constructor receives the other controllers to manage and organize them.
      *
-     * @param taxerModel it gets the taxerModel to follow MVC
+     * @see Taxer
+     * @see TaxerMenuView
+     * @see TaxerView
+     * @see TaxerRideController
+     * @see Client
+     * @see ClientController
+     * @see ClientView
+     *
+     * @param taxerModel it gets the taxerModel to follow MVC.
      */
     public TaxerController(Taxer taxerModel) {
         this.taxerModel = taxerModel;
@@ -55,9 +63,9 @@ public class TaxerController {
      * the method will start just if the user is sure about his or her information.
      *
      */
-    public void startTaxerFuntion() {
+    public void startTaxerFunction() {
         if(taxerMenuView.getIfStart() && clientView.getIfSure()) {
-            taxerRideController.setClientNameRide(client);
+            taxerRideController.setClientRide(client);
             taxerRideController.startApplication();
         }
         else taxerMenuView.offMessage();
@@ -69,6 +77,6 @@ public class TaxerController {
     public void start() {
         startTaxerMenu();
         askClientInformation();
-        startTaxerFuntion();
+        startTaxerFunction();
     }
 }

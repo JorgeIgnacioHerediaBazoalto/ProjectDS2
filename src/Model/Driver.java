@@ -5,7 +5,7 @@ package Model;
  *
  * @author Sebastian Barra
  */
-public class Driver extends Persona{
+public class Driver extends Person {
 
 
     private int AgeDriver;
@@ -22,7 +22,6 @@ public class Driver extends Persona{
      * @param licenseNumber license identification
      * @param racesAmount total races made by the driver
      */
-
     public Driver(String name, int phoneNumber, int ageDriver, int licenseNumber, int racesAmount) {
         super();
         this.name = name;
@@ -38,17 +37,15 @@ public class Driver extends Persona{
      *
      * @return AgeDriver
      */
-
     public int getAgeDriver() {
         return AgeDriver;
     }
 
     /**
-     * This method returns the the driver's license number.
+     * This method returns the driver's license number.
      *
      * @return licenseNumber
      */
-
     public int getLicenseNumber() {
         return licenseNumber;
     }
@@ -58,7 +55,6 @@ public class Driver extends Persona{
      * This method returns the total number of runs the driver made.
      * @return racesAmount
      */
-
     public int getRacesAmount() {
         return racesAmount;
     }
@@ -69,7 +65,6 @@ public class Driver extends Persona{
      *
      * @param ageDriver how old is the driver
      */
-
     public void setAgeDriver(int ageDriver) {
         AgeDriver = ageDriver;
     }
@@ -80,18 +75,16 @@ public class Driver extends Persona{
      *
      * @param licenseNumber license identification
      */
-
     public void setLicenseNumber(int licenseNumber) {
         this.licenseNumber = licenseNumber;
     }
 
 
     /**
-     * This methos set the amount of races that the driver has.
+     * This method set the amount of races that the driver has.
      *
      * @param racesAmount total races made by the driver
      */
-
     public void setRacesAmount(int racesAmount) {
         this.racesAmount = racesAmount;
     }

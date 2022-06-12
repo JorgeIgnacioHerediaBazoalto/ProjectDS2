@@ -1,6 +1,6 @@
 package Controler;
 
-public interface Controlable {
+public interface Controllable {
     /**
      * This method interacts with view and model to set and show general information.
      */

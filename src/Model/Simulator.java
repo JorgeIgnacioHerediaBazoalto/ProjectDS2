@@ -15,6 +15,11 @@ public class Simulator {
     // protected Calendar calendary = new GregorianCalendar();
 
     public Simulator() {}
+
+    /**
+     * This class turn a taxi available when the iteration is divisible by 5
+     * @param taxisWithDriver
+     */
     public void makeTaxiAvailable(ArrayList<Taxi> taxisWithDriver) {
         for (Taxi taxi: taxisWithDriver) {
             taxi.setAvailability(taxi.getIterations() % 5 == 0);

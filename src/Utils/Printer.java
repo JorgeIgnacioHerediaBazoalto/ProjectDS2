@@ -42,7 +42,7 @@ public class Printer {
     }
 
     /**
-     * Overloading the Method to print a message with color given
+     * Overloading the Method to print a message with color given.
      * 
      * @param message the information to print
      * @param color the color of the text
@@ -53,6 +53,13 @@ public class Printer {
         }
     }
 
+    /**
+     * Overloading the Method to print a message simulating load.
+     *
+     * @param message the information to print.
+     * @param messageLoad string that it implies that it carries.
+     * @param quantity load delay.
+     */
     public void printLoadMessage(String message, String messageLoad, int quantity) {
         System.out.print("\n"+colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
         style.chargeSimulator(colors.WHITE_BOLD_BRIGHT+messageLoad+colors.RESET,quantity);

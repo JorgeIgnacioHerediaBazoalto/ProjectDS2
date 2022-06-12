@@ -8,6 +8,12 @@ package Model;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This class represent taxi with yours attributes, for example its descriptive elements; number plate.
+ * Also, logics attributes for example availability.
+ *
+ * @author taxer-developed
+ */
 public class Taxi {
     private String numberPlate;
     private String carModel;
@@ -128,27 +134,42 @@ public class Taxi {
         this.availability = availability;
     }
 
-    public void setTaxiTrips(ArrayList<Race> taxiTrips) {
-        this.taxiTrips = taxiTrips;
-    }
-
+    /**
+     * This method gets driver from taxi.
+     * @return taxiDriver
+     */
     public Driver getTaxiDriver() {
         return taxiDriver;
     }
 
+    /**
+     * This method gets all trips from taxi.
+     * @return taxiTrips
+     */
     public ArrayList<Race> getTaxiTrips() {
         return taxiTrips;
     }
 
+    /**
+     * This method adds a trip to the taxi's trip history.
+     * @param race a trip
+     */
     public void addTaxiTrip(Race race) {
         taxiTrips.add(race);
     }
 
+    /**
+     * When the iteration is added, a random number in the range of 1 to 3 is generated and that number is added in the iteration.
+     */
     public void addIteration() {
         random = new Random();
         this.iterations += random.nextInt(2)+1;
     }
 
+    /**
+     * This method gets iteration number for use later
+     * @return
+     */
     public int getIterations() {
         return iterations;
     }
