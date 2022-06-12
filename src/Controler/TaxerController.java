@@ -48,7 +48,6 @@ public class TaxerController {
     public void askClientInformation() {
         if(taxerMenuView.getIfStart()) {
             clientController.askClientInfo();
-            taxerRideController.setClientNameRide(client.getName());
         }
     }
     /**
@@ -57,18 +56,12 @@ public class TaxerController {
      *
      */
     public void startTaxerFuntion() {
-        if(taxerMenuView.getIfStart() && clientController.getIfSure()) taxerRideController.startApplication();
+        if(taxerMenuView.getIfStart() && clientView.getIfSure()) {
+            taxerRideController.setClientNameRide(client);
+            taxerRideController.startApplication();
+        }
         else taxerMenuView.offMessage();
     }
-
-    /**
-     * This method is used to ask the necessary information of the client for the ride
-     * the method will start just if the user is sure about his or her information.
-     *
-     */
-    /*public void askRiceInfo() {
-        if(taxerRideController.getIfOrder()) raceController.askRaceInfo();
-    }*/
 
     /**
      * This is the principal method that starts the app

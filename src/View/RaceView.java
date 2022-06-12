@@ -1,5 +1,7 @@
 package View;
 
+import Utils.ValuesRequester;
+
 import java.text.DecimalFormat;
 
 
@@ -15,6 +17,14 @@ import java.text.DecimalFormat;
 public class RaceView extends Printable{
 
     private final DecimalFormat formatCost = new DecimalFormat("#.00");
+    protected ValuesRequester valuesRequester;
+    protected String orderAnswer;
+    protected boolean order;
+
+    public RaceView() {
+        super();
+        this.valuesRequester = new ValuesRequester();
+    }
 
     @Override
     public void title() {
@@ -24,12 +34,34 @@ public class RaceView extends Printable{
     public void printLookingTaxi() {
         printLoadMessage("Looking for a taxi available"," .",4);
     }
-    public void printAskTheStartPoint(){printMessage(colors.YELLOW_BOLD+"Enter your start point please: ");}
-    public void printAskTheArrivalPoint(){printMessage(colors.YELLOW_BOLD+"Enter your arrive point please: ");}
-    public void printAskTheNUmberOfPassengers(){printMessage(colors.YELLOW_BOLD+"Enter the number of passengers please: ");}
-    public void printIfTheAboutInformation(){
-        printMessage("\nIs correct the information of the ride?: ");
+    public String printAskTheStartPoint(){
+        printMessage(colors.YELLOW_BOLD+"\nEnter your start point please: ");
+        return valuesRequester.askLocation();
     }
+    public String printAskTheArrivalPoint(){
+        printMessage(colors.YELLOW_BOLD+"Enter your arrive point please: ");
+        return valuesRequester.askLocation();
+    }
+    public int printAskTheNUmberOfPassengers(){
+        printMessage(colors.YELLOW_BOLD+"Enter the number of passengers please: ");
+        return valuesRequester.askIntPassengers(valuesRequester.askIntValue());
+    }
+    public void askIfSureOfInformation(){
+        printMessage("\nIs correct the information of the ride?: ");
+        orderAnswer = valuesRequester.askTwoOptionString("Yes","No");
+    }
+
+    public void sureOfInformation() {
+        order = (orderAnswer.equalsIgnoreCase("Yes"));
+    }
+    public boolean getOrderRide() {
+        return order;
+    }
+
+    public void setOrderRide(boolean order) {
+        this.order = order;
+    }
+
     public void printerTheInformationOfRace(){printMessage("\n"+colors.GREEN_BACKGROUND+ "INFORMATION FROM THE RACE"+colors.RESET + "\n");}
     /**
      *This method is responsible for creating the message to be printed.

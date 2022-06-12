@@ -15,6 +15,10 @@ import java.util.ArrayList;
 public class TaxiView extends Printable {
     private RaceView raceView;
 
+    public TaxiView () {
+        super();
+    }
+
     @Override
     public void title() {
         printMessage("\n"+colors.PURPLE_BACKGROUND+"INFORMATION FROM THE TAXI"+colors.RESET+"\n");
@@ -39,7 +43,10 @@ public class TaxiView extends Printable {
                 colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+ "\nCapacity:"+colors.RESET+" " + colors.WHITE_BOLD_BRIGHT+ capacity+
                 colors.PURPLE_BOLD_BRIGHT+printStyle.PURPLE_UNDERLINED+"\nTaxi Trips:"+colors.RESET+" "+ colors.WHITE_BOLD_BRIGHT+ taxiTrips+"\n";
     }
-
+    /**
+     * This method prints the general information of the trips completed if the taxi has trips completed
+     * @param rides the list of rides completed by the taxi to send it at printEachRaceInfo
+     */
     public void printRidesInformation(ArrayList<Race> rides) {
         if (!rides.isEmpty()) {
             System.out.println();
@@ -49,12 +56,16 @@ public class TaxiView extends Printable {
         }
     }
 
+    /**
+     * This method prints the general information of each trip finished by the taxi
+     * @param rides the list of rides completed by the taxi to loop and print each general information
+     */
     private void printEachRaceInfo(ArrayList<Race> rides) {
-        for (Race race:rides
-        ) {
-            raceView = new RaceView();
+        raceView = new RaceView();
+        for (Race race:rides) {
             System.out.println();
-            System.out.println("Ride Number "+(rides.indexOf(race)+1));
+            System.out.println(colors.GREEN_BOLD_BRIGHT+"RIDE NUMBER: "+
+                    colors.WHITE_BOLD_BRIGHT+(rides.indexOf(race)+1)+colors.RESET);
             RaceController raceController = new RaceController(race,raceView);
             raceController.generalInformation();
         }

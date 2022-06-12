@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * This is the class that contains the principial funtions of the app
+ * This is the class that contains the principal functions of the app
  *
  * @author Santiago Caballero
  */
@@ -15,9 +15,6 @@ public class Taxer {
     ArrayList<Driver> drivers;
     ArrayList<Taxi> taxisWithDriver;
     ArrayList<Taxi> taxisAvailable;
-    ArrayList<Driver> driversAvailable;
-    boolean areTaxisAvailable;
-    private String currency;
 
     /**
      * This is the constructor method of Taxer
@@ -28,9 +25,6 @@ public class Taxer {
         this.drivers = new ArrayList<>();
         this.taxisWithDriver = new ArrayList<>();
         this.taxisAvailable = new ArrayList<>();
-        this.driversAvailable = new ArrayList<>();
-        this.areTaxisAvailable = false;
-        this.setCurrency("BOB");
     }
 
     public void addTaxi(Taxi taxi) {
@@ -41,16 +35,19 @@ public class Taxer {
         drivers.add(driver);
     }
 
-
+    /**
+     * This method searches the available taxis from the list of taxis with driver
+     * the method puts the available taxis in a new list in order to start a ride
+     * in the case of being taxis that are not available the method removes them from the available taxis list
+     *
+     */
     public void searchTaxiAvailable() {
         for (Taxi taxiMaybeAvailable: taxisWithDriver) {
             if (taxiMaybeAvailable.isAvailability()){
                 taxisAvailable.add(taxiMaybeAvailable);
-                System.out.println(taxiMaybeAvailable.getCarColor()+ " a taxi available");
             }
             else {
                 taxisAvailable.remove(taxiMaybeAvailable);
-                System.out.println(taxiMaybeAvailable.getCarColor()+ " se remueve");
             }
         }
     }
@@ -59,7 +56,6 @@ public class Taxer {
         if (taxisWithDriver.size() > 0) {
             for (Taxi taxi: taxisWithDriver) {
                 taxi.addIteration();
-                System.out.println(taxi.getIterations());
             }
         }
     }
@@ -67,9 +63,6 @@ public class Taxer {
     public void viewTaxisAvailable() {
         Simulator simulator = new Simulator();
         simulator.makeTaxiAvailable(taxisWithDriver);
-        //for (Taxi taxi: taxisWithDriver) {
-        //    taxi.setAvailability(taxi.getIterations() % 5 == 0);
-        //}
     }
 
     public void asignDriverToTaxi(Driver driver, Taxi taxi) {
@@ -77,22 +70,23 @@ public class Taxer {
         removeDriver(driver);
         removeTaxi(taxi);
         taxisWithDriver.add(taxi);
-        taxi.getTaxiDriver().getName();
         viewTaxisAvailable();
     }
 
+    /**
+     * Method to put a random driver to a random taxi if our data base has taxis and drivers
+     * this method puts a driver into a taxi and searches the available taxis with drivers
+     * when all the taxis have their drivers the method just searches the available taxis with drivers
+     *
+     */
     public void putRandomDriverToTaxi() {
         Random random = new Random();
         if (!drivers.isEmpty() && !taxis.isEmpty()) {
             int randomTaxi = random.nextInt(taxis.size());
             int randomDriver = random.nextInt(drivers.size());
             asignDriverToTaxi(drivers.get(randomDriver), taxis.get(randomTaxi));
-            System.out.println("se asigno un chofer al taxi");
-            areTaxisAvailable = true;
         }
         else {
-            areTaxisAvailable =false;
-            System.out.println("no hay mas chofers o taxis para la lista");
             viewTaxisAvailable();
         }
     }
@@ -105,7 +99,6 @@ public class Taxer {
     public void startLookingTaxi() {
         putRandomDriverToTaxi();
         searchTaxiAvailable();
-        System.out.println("patatas");
     }
 
     private void setTaxisList() {
@@ -122,16 +115,6 @@ public class Taxer {
         return taxisAvailable;
     }
 
-    /*public void taxiIsNowNotAvailable(Taxi taxi) {
-        taxisAvailable.removeIf(taxiAvailable -> taxi.getNumberPlate().equals(taxiAvailable.getNumberPlate()));
-    }
-
-    public Taxi useTaxiAvailable() {
-        Taxi taxiAvailable = taxisAvailable.get(0);
-        taxiIsNowNotAvailable(taxiAvailable);
-        return taxiAvailable;
-    }*/
-
     public void removeDriver(Driver driver){
         drivers.remove(driver);
     }
@@ -139,27 +122,5 @@ public class Taxer {
     public void removeTaxi(Taxi taxi) {
         taxis.remove(taxi);
     }
-
-    public String getCurrency() {
-        return currency;
-    }
-
-    public void setCurrency(String currency) {
-        this.currency = currency;
-    }
-
-   /* public Driver driverFromList(ArrayList<Driver> drivers){
-        Driver driver = null;
-        int cont = 0;
-
-        if(cont < drivers.size()){
-            driver = drivers.get(cont);
-            removeDriver(cont);
-            cont++;
-        }
-
-        return driver;
-    }*/
-
 
 }

@@ -1,5 +1,7 @@
 package View;
 
+import Utils.ValuesRequester;
+
 /**
  * This class print the information about the client.
  * Use Printer of the Utils package.
@@ -7,24 +9,48 @@ package View;
  * @author Karina Aguirre.
  */
 public class ClientView extends Printable{
+    private String sureAnswer;
+    private boolean isSure;
+
+    public ClientView() {
+        super();
+    }
 
     @Override
     public void title() {
         printMessage("\n"+colors.BLUE_BACKGROUND+ "INFORMATION FROM THE CLIENT"+colors.RESET + "\n");
     }
 
-    public void printAskTheNameClient(){
+    public String printAskTheNameClient(){
         printMessage(colors.PURPLE_BOLD+"Enter your name please: ");
+        return valuesRequester.askName();
     }
-    public void printAskThePhoneClient(){
+    public int printAskThePhoneClient(){
         printMessage(colors.PURPLE_BOLD+"Enter your phone number please: ");
+        return valuesRequester.askIntValue();
     }
-    public void printAskTheLocationClient(){
+    public String printAskTheLocationClient(){
         printMessage(colors.PURPLE_BOLD+"Enter your home location please: ");
+        return valuesRequester.askLocation();
     }
 
-    public void printIfTheAboutInformation(){
+    public void askIfSure(){
         printMessage("\nAre you sure about your information?: ");
+        sureAnswer = valuesRequester.askTwoOptionString("Yes","No");
+    }
+
+    /**
+     * Method that get if sure when the answer is yes.
+     *
+     * @return isSure
+     */
+    public boolean getIfSure() {
+        isSure = (sureAnswer.equalsIgnoreCase("Yes"));
+        return isSure;
+    }
+
+    public boolean getIfSureBool() {
+        return isSure;
     }
 
     /**

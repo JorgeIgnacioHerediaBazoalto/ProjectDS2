@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 public class Race {
 
     private double cost;
-    private String nameDriver, nameClient, startingPoint, arrivalPoint;
+    private String nameDriver, nameClient, startingPoint, arrivalPoint, currency;
     private int passengerCount;
     private String dateTime;
 
@@ -31,12 +31,14 @@ public class Race {
      */
 
     public Race() {
+        this.nameClient = null;
         this.nameDriver = null;
         this.cost = 0;
         this.startingPoint = null;
         this.arrivalPoint = null;
         this.passengerCount = 0;
         this.dateTime = "";
+        this.currency = "BOB";
     }
 
     /**
@@ -166,6 +168,10 @@ public class Race {
 
     public String getDateTime() {
         return dateTime;
+    }
+
+    public String getCurrency() {
+        return currency;
     }
 
     /**

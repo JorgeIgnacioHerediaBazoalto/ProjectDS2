@@ -30,13 +30,19 @@ public class Printer {
         System.out.print(colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
     }
 
+    /**
+     * Overloading the Method to print a message with a delay
+     *
+     * @param message the information to print
+     * @param delay true the message will have a delay
+     */
     public void printMessage(String message, boolean delay) {
         System.out.println(colors.WHITE_BOLD_BRIGHT+message+colors.RESET);
         style.chargeSimulator();
     }
 
     /**
-     * Method to print a message with color given
+     * Overloading the Method to print a message with color given
      * 
      * @param message the information to print
      * @param color the color of the text
@@ -45,17 +51,6 @@ public class Printer {
         if (color.equals("red")) {
             System.out.print(colors.RED_BOLD_BRIGHT + message + colors.RESET);
         }
-    }
-
-    /**
-     * Method to print 2 messages by console
-     *
-     * @param message1 string value
-     * @param message2 string value
-     */
-    public void printBoxMessages(String message1, String message2) {
-        System.out.println(colors.GREEN_BOLD_BRIGHT+message1+colors.RESET +
-                " " + style.BOXING+colors.WHITE_BOLD_BRIGHT+message2+colors.RESET+style.RESET);
     }
 
     public void printLoadMessage(String message, String messageLoad, int quantity) {

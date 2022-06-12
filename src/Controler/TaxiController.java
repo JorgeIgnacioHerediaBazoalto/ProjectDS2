@@ -22,16 +22,6 @@ public class TaxiController implements Controlable{
         this.taxiView = taxiView;
     }
 
-    /**
-     * This method pass the parameters of the taxi to taxi View so that it can display the availability information of car.
-     *
-     * @see Taxi
-     * @see TaxiView
-     */
-    public void taxiIsDisponible() {
-        taxiView.printMessage(taxiView.showIsAvailable(taxiModel.getNumberPlate(), taxiModel.isAvailability()));
-    }
-
     public void ridesGeneralInformation() {
         taxiView.printRidesInformation(taxiModel.getTaxiTrips());
     }

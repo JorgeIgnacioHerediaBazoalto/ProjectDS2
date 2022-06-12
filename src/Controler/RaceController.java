@@ -14,10 +14,6 @@ public class RaceController implements Controlable{
 
     private final Race race;
     private final RaceView raceView;
-    protected ValuesRequester valuesRequester;
-    protected String orderAnswer;
-    protected boolean order;
-    private String currency;
 
     /**
      * RaceController class constructor method
@@ -29,8 +25,6 @@ public class RaceController implements Controlable{
     public RaceController(Race race, RaceView raceView) {
         this.race = race;
         this.raceView = raceView;
-        this.valuesRequester = new ValuesRequester();
-        this.currency = null;
     }
 
     public void setClientName(String clientName) {
@@ -54,42 +48,26 @@ public class RaceController implements Controlable{
         race.setDateTime();
     }
 
-    public void setCurrency(String currency) { this.currency = currency;}
-
     public void askStartPoint() {
-        raceView.printAskTheStartPoint();
-        String startPoint = valuesRequester.askLocation();
+        String startPoint = raceView.printAskTheStartPoint();
         setRaceStartPoint(startPoint);
     }
 
     public void askArrivePoint() {
-        raceView.printAskTheArrivalPoint();
-        String arrivePoint = valuesRequester.askLocation();
+        String arrivePoint = raceView.printAskTheArrivalPoint();
         setRaceArrivePoint(arrivePoint);
     }
 
     public void askPassangers() {
-        raceView.printAskTheNUmberOfPassengers();
-        int passangers = valuesRequester.askIntPassengers(valuesRequester.askIntValue());
+        int passangers = raceView.printAskTheNUmberOfPassengers();
         setRacePassangers(passangers);
     }
 
-
-    public void askIfSureOfInformation() {
-        raceView.printIfTheAboutInformation();
-        orderAnswer = valuesRequester.askTwoOptionString("Yes","No");
-    }
-
-    public boolean sureOfInformation() {
-        order = (orderAnswer.equalsIgnoreCase("Yes"));
-        return order;
-    }
-
     public void askRaceInfo() {
-        while (!order) {
+        while (!raceView.getOrderRide()) {
             askInfo();
         }
-        order = false;
+        raceView.setOrderRide(false);
         raceView.printLookingTaxi();
     }
 
@@ -98,14 +76,15 @@ public class RaceController implements Controlable{
         askArrivePoint();
         askPassangers();
         racePartialInformation();
-        askIfSureOfInformation();
-        sureOfInformation();
+        raceView.askIfSureOfInformation();
+        raceView.sureOfInformation();
     }
 
     public void racePartialInformation() {
         raceView.printerTheInformationOfRace();
         race.setCost();
-        raceView.showRaceData(race.getCost(),race.getStartingPoint(),race.getArrivalPoint(),race.getPassengerCount(), currency);
+        raceView.showRaceData(race.getCost(),race.getStartingPoint(),
+                race.getArrivalPoint(),race.getPassengerCount(), race.getCurrency());
     }
 
     /**
@@ -118,6 +97,6 @@ public class RaceController implements Controlable{
     public void generalInformation() {
         raceView.title();
         raceView.printMessage(raceView.showInformationRace(race.getNameDriver(), race.getNameClient(), race.getCost(),
-                race.getStartingPoint(), race.getArrivalPoint(), race.getPassengerCount(), race.getDateTime(), currency));
+                race.getStartingPoint(), race.getArrivalPoint(), race.getPassengerCount(), race.getDateTime(), race.getCurrency()));
     }
 }

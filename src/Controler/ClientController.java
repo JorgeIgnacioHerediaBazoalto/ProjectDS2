@@ -13,9 +13,6 @@ import View.ClientView;
 public class ClientController implements Controlable{
     private final Client clientModel;
     private final ClientView clientView;
-    protected ValuesRequester valuesRequester;
-    private String sureAnswer;
-    private boolean isSure;
 
     /**
      * This is the constructor of the class ClientController.
@@ -26,7 +23,6 @@ public class ClientController implements Controlable{
     public ClientController(Client clientModel, ClientView clientView){
         this.clientModel = clientModel;
         this.clientView = clientView;
-        this.valuesRequester = new ValuesRequester();
     }
 
     /**
@@ -61,8 +57,7 @@ public class ClientController implements Controlable{
      * This method ask the name from the client.
      */
     public void askClientName() {
-        clientView.printAskTheNameClient();
-        String name = valuesRequester.askName();
+        String name = clientView.printAskTheNameClient();
         setClientName(name);
     }
 
@@ -70,8 +65,7 @@ public class ClientController implements Controlable{
      * This method ask the location from the client.
      */
     public void askClientLocation() {
-        clientView.printAskTheLocationClient();
-        String location = valuesRequester.askLocation();
+        String location = clientView.printAskTheLocationClient();
         setClientLocation(location);
     }
 
@@ -79,35 +73,16 @@ public class ClientController implements Controlable{
      * This method ask the number phone from the client.
      */
     public void askClientPhone() {
-        clientView.printAskThePhoneClient();
-        int phone = valuesRequester.askIntValue();
-        setClientPhone(phone);
+        int phoneNumber = clientView.printAskThePhoneClient();
+        setClientPhone(phoneNumber);
     }
 
-    /**
-     * This method ask if the entered information is sure.
-     * The answer is yes or no.
-     */
-    public void askIfSure() {
-        clientView.printIfTheAboutInformation();
-        sureAnswer = valuesRequester.askTwoOptionString("Yes","No");
-    }
-
-    /**
-     * Method that get if sure when the answer is yes.
-     *
-     * @return isSure
-     */
-    public boolean getIfSure() {
-        isSure = (sureAnswer.equalsIgnoreCase("Yes"));
-        return isSure;
-    }
 
     /**
      * This method ask the information again in case the answer is no.
      */
     public void askClientInfo() {
-        while (!isSure) {
+        while (!clientView.getIfSureBool()) {
             askInfo();
         }
     }
@@ -120,8 +95,8 @@ public class ClientController implements Controlable{
         askClientLocation();
         askClientPhone();
         generalInformation();
-        askIfSure();
-        getIfSure();
+        clientView.askIfSure();
+        clientView.getIfSure();
     }
 
 

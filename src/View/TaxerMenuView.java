@@ -8,12 +8,9 @@ import Utils.*;
  *
  * @author Santiago Caballero
  */
-public class TaxerMenuView {
+public class TaxerMenuView extends Printable{
 
-    private final ValuesRequester valuesRequester;
     private String startRequestAnswer;
-    protected Colors colors;
-    protected Printer printer;
 
     /**
      * This is the constructor method it initializes the util classes to set and send information to the printer.
@@ -21,17 +18,15 @@ public class TaxerMenuView {
      *
      */
     public TaxerMenuView() {
-        this.printer = new Printer();
-        this.valuesRequester = new ValuesRequester();
-        this.colors = new Colors();
+        super();
     }
 
     /**
      * This method sets the welcome message at the beginning of the app.
      */
     private void setWelcomeMessage() {
-        printer.printMessage(colors.BLUE_BOLD_BRIGHT+"\n--------- "+colors.RESET+
-                colors.WHITE_BOLD_BRIGHT+"WELCOME TO TAXER"+colors.RESET+
+        printMessage(colors.BLUE_BOLD_BRIGHT+"\n--------- "+colors.RESET+
+                colors.ORANGE_BACKGROUND+colors.WHITE_BOLD_BRIGHT+"WELCOME TO TAXER"+colors.RESET+
                 colors.BLUE_BOLD_BRIGHT+" ---------"+colors.RESET+"\n",true);
     }
 
@@ -40,7 +35,7 @@ public class TaxerMenuView {
      * the method is called before giving the personal information
      */
     private void askIfStart() {
-        printer.printMessage("Do you want to start the App?: ");
+        printMessage("\nDo you want to start the App?: ");
         startRequestAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
@@ -51,21 +46,14 @@ public class TaxerMenuView {
      * @return true if the startRequqestAnswer is yes
      */
     public boolean getIfStart() {
-        boolean willStart;
-        if (startRequestAnswer.equalsIgnoreCase("Yes")) willStart = true;
-        else {
-            //offMessage();
-            willStart = false;
-        }
-        return
-                willStart;
+        return (startRequestAnswer.equalsIgnoreCase("Yes"));
     }
 
     /**
      * This method sets an end message
      */
     public void offMessage() {
-        printer.printMessage(colors.BLUE_BOLD_BRIGHT+"----"+
+        printMessage(colors.BLUE_BOLD_BRIGHT+"----"+
                 colors.WHITE_BOLD_BRIGHT+ "Ok come back when you want to start using the app"
                 +colors.BLUE_BOLD_BRIGHT+ "----"+colors.RESET);
     }
@@ -75,7 +63,14 @@ public class TaxerMenuView {
      */
     public void startMenu() {
         setWelcomeMessage();
+        title();
         askIfStart();
     }
 
+    @Override
+    public void title() {
+        printMessage(colors.WHITE_BOLD_BRIGHT+"\n<<<<<<<<<<  "+
+                colors.CYAN_BACKGROUND+ " TAXER MENU "+ colors.RESET+
+                colors.WHITE_BOLD_BRIGHT+"  >>>>>>>>>>>>"+ colors.RESET+"\n");
+    }
 }
