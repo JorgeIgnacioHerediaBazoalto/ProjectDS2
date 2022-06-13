@@ -4,7 +4,7 @@ package Utils;
  * This is a util class to store Colors values
  * This class contains constants values of colors to be used in console prints.
  *
- * @author Santiago Caballero
+ * @author LOS TIRADOS
  */
 
 public class Colors {

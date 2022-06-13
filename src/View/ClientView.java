@@ -6,7 +6,7 @@ import Utils.ValuesRequester;
  * This class print the information about the client.
  * Use Printer of the Utils package.
  *
- * @author Karina Aguirre.
+ * @author LOS TIRADOS.
  */
 public class ClientView extends Printable{
     private String sureAnswer;

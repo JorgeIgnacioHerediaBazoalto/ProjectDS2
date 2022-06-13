@@ -7,7 +7,7 @@ import View.*;
  * This class is to control the messages to ask if the user needs a ride
  * This class sets and sends the information to its view Class to ask the ride information.
  *
- * @author Santiago Caballero
+ * @author LOS TIRADOS
  */
 public class TaxerRideController {
     protected TaxerView taxerRideView;

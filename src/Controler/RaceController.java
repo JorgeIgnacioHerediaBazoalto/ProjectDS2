@@ -5,7 +5,7 @@ import View.RaceView;
 /**
  * This class is responsible for communicating the Race and RaceView classes.
  *
- * @author Denis Jorge Gandarillas Delgado
+ * @author LOS TIRADOS
  */
 
 public class RaceController implements Controllable {

@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 /**
  * Class that helps to validate if any unwanted character or digit is entered.
  * 
- * @author Denis Jorge Gandarillas Delgado
+ * @author LOS TIRADOS
  */
 
 public class RegularExpression{

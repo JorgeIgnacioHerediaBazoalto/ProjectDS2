@@ -8,7 +8,7 @@ import java.util.Random;
  * This is the class that contains the principal functions of the app
  * The class TAXER assign drivers to the taxis available, searches the taxis available to take the ride
  *
- * @author Santiago Caballero
+ * @author LOS TIRADOS
  */
 public class Taxer {
     ArrayList<Taxi> taxis;

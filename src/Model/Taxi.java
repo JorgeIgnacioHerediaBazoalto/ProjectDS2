@@ -1,7 +1,7 @@
 /**
  * This is Taxi class with params of a taxi real.
  *
- * @author Jorge Heredia
+ * @author LOS TIRADOS
  */
 package Model;
 
@@ -12,7 +12,7 @@ import java.util.Random;
  * This class represent taxi with yours attributes, for example its descriptive elements; number plate.
  * Also, logics attributes for example availability.
  *
- * @author taxer-developed
+ * @author LOS TIRADOS-developed
  */
 public class Taxi {
     private String numberPlate;

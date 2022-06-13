@@ -6,7 +6,7 @@ import View.TaxiView;
 /**
  * This is class Taxi Controller in this layer of design develop interaction with view and model layer
  *
- * @author Jorge Heredia
+ * @author LOS TIRADOS
  */
 public class TaxiController implements Controllable {
     Taxi taxiModel;

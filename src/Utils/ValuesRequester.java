@@ -5,7 +5,7 @@ import java.util.Scanner;
  * This class is used to request values to the user.
  * The class has methods to ask the user introduce different methods.
  *
- * @author Santiago Caballero.
+ * @author LOS TIRADOS.
  */
 public class ValuesRequester {
     private final Scanner input;

@@ -5,7 +5,7 @@ import java.util.Map;
  * This is class Printer is used to print a message or messages on the console output
  * This class belongs to utils package and it interacts with view classes
  *
- * @author Santiago Caballero
+ * @author LOS TIRADOS
  */
 public class Printer {
     private final Colors colors;
@@ -80,4 +80,3 @@ public class Printer {
     }
 
 }
-//DELETE CLASS

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * Use printer class of the utils package.
  *
- * @author Jorge Heredia
+ * @author LOS TIRADOS
  */
 public class TaxiView extends Printable {
     private RaceView raceView;

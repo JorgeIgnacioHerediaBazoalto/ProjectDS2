@@ -6,7 +6,7 @@ import Utils.*;
  * This class is to control the messages to display of the start menu of the app
  * This class sets and sends the information to its view Class to show the welcome menu.
  *
- * @author Santiago Caballero
+ * @author LOS TIRADOS
  */
 public class TaxerMenuView extends Printable{
 

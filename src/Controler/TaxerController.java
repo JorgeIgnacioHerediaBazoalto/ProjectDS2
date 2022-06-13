@@ -8,7 +8,7 @@ import View.*;
  * This class is set to manage the order of the controllers to display the Menu and
  * the execution of the app
  *
- * @author Santiago Caballero
+ * @author LOS TIRADOS
  */
 public class TaxerController {
     protected Taxer taxerModel;

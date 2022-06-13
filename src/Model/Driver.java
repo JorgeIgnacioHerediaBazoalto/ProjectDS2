@@ -3,7 +3,7 @@ package Model;
 /**
  * This class represents the driver of the taxis.
  *
- * @author Sebastian Barra
+ * @author LOS TIRADOS
  */
 public class Driver extends Person {
 

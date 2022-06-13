@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
  *     Use the printer class from the utils package.
  * </p>
  *
- * @author Denis Jorge Gandarillas Delgado
+ * @author LOS TIRADOS
  */
 public class RaceView extends Printable{
 

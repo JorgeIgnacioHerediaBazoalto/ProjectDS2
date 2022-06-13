@@ -4,7 +4,7 @@ package Model;
  * This class represents the client and get her information.
  *
  * @see Person
- * @author Karina Aguirre.
+ * @author LOS TIRADOS.
  */
 public class Client extends Person {
     protected String location;

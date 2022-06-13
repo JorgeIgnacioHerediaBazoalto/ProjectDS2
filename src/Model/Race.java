@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 /**
  *This class represents the information about the race.
  *
- * @author Denis Jorge Gandarillas Delgado
+ * @author LOS TIRADOS
  */
 
 public class Race {

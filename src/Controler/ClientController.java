@@ -7,7 +7,7 @@ import View.ClientView;
  * Use class client.
  * Use class clientView.
  *
- * @author Karina Aguirre.
+ * @author LOS TIRADOS.
  */
 public class ClientController implements Controllable {
     private final Client clientModel;

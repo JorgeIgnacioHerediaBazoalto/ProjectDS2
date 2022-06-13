@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
  * This class contains constants values of different types of text style to be used in console prints
  * The style options are to create a box around the text, to strike the text and underline the text.
  *
- * @author Santiago Caballero
+ * @author LOS TIRADOS
  */
 
 public class PrintStyle {

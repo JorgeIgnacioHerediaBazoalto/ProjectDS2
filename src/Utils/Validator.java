@@ -5,7 +5,7 @@ package Utils;
  * This class will be used to validate values
  * It contains two methods which will be called to validate the value in a specific case
  *
- * @author Santiago Caballero
+ * @author LOS TIRADOS
  */
 public class Validator {
 
