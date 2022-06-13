@@ -5,6 +5,12 @@ import Model.Driver;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class simulates a data base that contains information about the drivers
+ *
+ * @author LOS TIRADOS
+ */
+
 public class Drivers {
     protected ArrayList<Driver> drivers;
 
