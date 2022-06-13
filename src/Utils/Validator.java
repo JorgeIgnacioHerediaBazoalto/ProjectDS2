@@ -69,13 +69,7 @@ public class Validator {
 
     public boolean verifyLocation(String location){
 
-        boolean result = true;
-
-        if (regularExpression.validateSymbols(location)) {
-            result = false;
-        }
-
-        return result;
+        return !regularExpression.validateSymbols(location);
 
     }
 

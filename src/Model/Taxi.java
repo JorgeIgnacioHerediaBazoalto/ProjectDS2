@@ -1,27 +1,22 @@
-/**
- * This is Taxi class with params of a taxi real.
- *
- * @author LOS TIRADOS
- */
 package Model;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * This class represent taxi with yours attributes, for example its descriptive elements; number plate.
+ * This class represent taxi with its attributes, for example its descriptive elements; number plate.
  * Also, logics attributes for example availability.
  *
  * @author LOS TIRADOS-developed
  */
 public class Taxi {
-    private String numberPlate;
-    private String carModel;
-    private String carColor;
-    private int capacity;
+    private final String numberPlate;
+    private final String carModel;
+    private final String carColor;
+    private final int capacity;
     private boolean availability;
     private Driver taxiDriver;
-    private ArrayList<Race> taxiTrips;
+    protected ArrayList<Race> taxiTrips;
     protected int iterations;
 
     private Random random;
@@ -63,14 +58,6 @@ public class Taxi {
     }
 
     /**
-     * Method that set the car license plate.
-     * @param numberPlate Identifier of car.
-     */
-    public void setNumberPlate(String numberPlate) {
-        this.numberPlate = numberPlate;
-    }
-
-    /**
      * Method that get the car model.
      * @return carModel
      */
@@ -78,13 +65,6 @@ public class Taxi {
         return carModel;
     }
 
-    /**
-     * Method that set the car model.
-     * @param carModel Specification of car design.
-     */
-    public void setCarModel(String carModel) {
-        this.carModel = carModel;
-    }
 
     /**
      * Method that get the car color primary.
@@ -95,27 +75,11 @@ public class Taxi {
     }
 
     /**
-     * Method that set the car color primary.
-     * @param carColor Car primary color, that may change.
-     */
-    public void setCarColor(String carColor) {
-        this.carColor = carColor;
-    }
-
-    /**
      * Method that get the car capacity.
      * @return capacity
      */
     public int getCapacity() {
         return capacity;
-    }
-
-    /**
-     * Method that set the car capacity.
-     * @param capacity How many people enter.
-     */
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
     }
 
     /**
@@ -168,9 +132,10 @@ public class Taxi {
 
     /**
      * This method gets iteration number for use later
-     * @return
+     * @return the iterations of the taxi
      */
     public int getIterations() {
         return iterations;
     }
+
 }

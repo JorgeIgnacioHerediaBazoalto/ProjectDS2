@@ -1,9 +1,7 @@
 package DB;
 
 import Model.Driver;
-
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This class simulates a data base that contains information about the drivers

@@ -1,9 +1,6 @@
 package View;
 
-import Utils.Colors;
-import Utils.PrintStyle;
-import Utils.Printer;
-import Utils.ValuesRequester;
+import Utils.*;
 
 /**
  * This is abstract class, printable inherit when one Viewer need print about thing.

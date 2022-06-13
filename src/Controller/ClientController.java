@@ -1,4 +1,4 @@
-package Controler;
+package Controller;
 import Model.Client;
 import View.ClientView;
 

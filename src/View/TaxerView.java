@@ -1,10 +1,5 @@
 package View;
 
-import Model.Race;
-import Utils.Colors;
-import Utils.Printer;
-import Utils.ValuesRequester;
-
 /**
  * This method is view of the taxer(Business class).
  * Inherit Printable because use tools of printer and this class need to title.

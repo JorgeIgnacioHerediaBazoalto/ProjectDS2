@@ -1,7 +1,5 @@
 package View;
 
-import Utils.ValuesRequester;
-
 /**
  * This class print the information about the client.
  * Use Printer of the Utils package.

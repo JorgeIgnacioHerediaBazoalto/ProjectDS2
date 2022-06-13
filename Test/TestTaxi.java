@@ -1,6 +1,5 @@
 import Model.Taxi;
 import View.TaxiView;
-
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 

@@ -33,22 +33,6 @@ public class Taxer {
     }
 
     /**
-     * This method add a taxi in taxis list.
-     * @param taxi any taxi.
-     */
-    public void addTaxi(Taxi taxi) {
-        taxis.add(taxi);
-    }
-
-    /**
-     * This method add a driver in drivers list.
-     * @param driver any driver.
-     */
-    public void addDriver(Driver driver){
-        drivers.add(driver);
-    }
-
-    /**
      * This method searches the available taxis from the list of taxis with driver
      * the method puts the available taxis in a new list in order to start a ride
      * if there are taxis that aren't available the method removes them from the available taxis list

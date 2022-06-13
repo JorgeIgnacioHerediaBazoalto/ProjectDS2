@@ -1,10 +1,7 @@
 package DB;
 
 import Model.Taxi;
-
 import java.util.ArrayList;
-import java.util.List;
-import Utils.Colors;
 
 /**
  * This class simulates a data base that contains information about the taxis
@@ -13,7 +10,6 @@ import Utils.Colors;
  */
 
 public class Taxis {
-    protected Colors colors =new Colors();
     protected ArrayList<Taxi> taxis;
 
     /**

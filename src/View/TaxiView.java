@@ -1,8 +1,7 @@
 package View;
 
-import Controler.RaceController;
+import Controller.RaceController;
 import Model.Race;
-
 import java.util.ArrayList;
 
 /**

@@ -1,7 +1,5 @@
-import Controler.TaxerController;
+import Controller.TaxerController;
 import Model.Taxer;
-
-import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {

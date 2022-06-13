@@ -1,4 +1,4 @@
-package Controler;
+package Controller;
 
 import Model.Taxi;
 import View.TaxiView;

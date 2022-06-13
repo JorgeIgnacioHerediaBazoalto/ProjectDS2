@@ -28,35 +28,6 @@ public class RegularExpression{
         regularExpressionSymbols = Pattern.compile("[\\p{Punct}]");
     }
 
-    /**
-     * Helps to verify if there are letters in the entered answer.
-     * 
-     * Checks if the user entered letters in those fields where they should not be entered.
-     * 
-     * @param answer User entered answer
-     * @return false if it contains no letters and true if it contains 1 or more letters.
-     */
-
-    public boolean validateLetters(String answer){
-
-        matcher = regularExpressionLetters.matcher(answer);
-
-        int countErrors = 0;
-
-        boolean result = false;
-
-        for (int i = 0; i <= answer.length(); i++) {
-            if (matcher.find()) {
-                countErrors++;
-            }
-        }
-        
-        if (countErrors > 0) {
-            result = true;
-        }
-
-        return result;
-    }
 
     /**
      * Helps to verify if there are numbers in the entered answer.
