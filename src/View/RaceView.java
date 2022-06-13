@@ -17,13 +17,11 @@ import java.text.DecimalFormat;
 public class RaceView extends Printable{
 
     private final DecimalFormat formatCost = new DecimalFormat("#.00");
-    protected ValuesRequester valuesRequester;
     protected String orderAnswer;
     protected boolean order;
 
     public RaceView() {
         super();
-        this.valuesRequester = new ValuesRequester();
     }
 
     @Override
