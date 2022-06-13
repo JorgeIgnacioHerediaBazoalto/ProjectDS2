@@ -65,9 +65,8 @@ public class ClientView extends Printable{
      *
      * @return isSure
      */
-    public boolean getIfSure() {
+    public void setIfSure() {
         isSure = (sureAnswer.equalsIgnoreCase("Yes"));
-        return isSure;
     }
 
     /**

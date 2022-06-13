@@ -64,7 +64,7 @@ public class TaxerController {
      *
      */
     public void startTaxerFunction() {
-        if(taxerMenuView.getIfStart() && clientView.getIfSure()) {
+        if(taxerMenuView.getIfStart() && clientView.getIfSureBool()) {
             taxerRideController.setClientRide(client);
             taxerRideController.startApplication();
         }

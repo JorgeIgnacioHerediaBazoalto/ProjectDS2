@@ -95,7 +95,7 @@ public class ClientController implements Controllable {
         askClientPhone();
         generalInformation();
         clientView.askIfSure();
-        clientView.getIfSure();
+        clientView.setIfSure();
     }
 
 
