@@ -87,7 +87,7 @@ public class Taxer {
      * when all the taxis have their drivers the method just searches the available taxis with drivers
      *
      */
-    public void putRandomDriverToTaxi() {
+    private void putRandomDriverToTaxi() {
         Random random = new Random();
         if (!drivers.isEmpty() && !taxis.isEmpty()) {
             int randomTaxi = random.nextInt(taxis.size());
@@ -143,7 +143,7 @@ public class Taxer {
      * This method removes driver from driver list.
      * @param driver driver to be removed.
      */
-    public void removeDriver(Driver driver){
+    private void removeDriver(Driver driver){
         drivers.remove(driver);
     }
 
@@ -151,7 +151,7 @@ public class Taxer {
      * This method removes taxi from taxis list.
      * @param taxi taxi to be removed.
      */
-    public void removeTaxi(Taxi taxi) {
+    private void removeTaxi(Taxi taxi) {
         taxis.remove(taxi);
     }
 
