@@ -67,6 +67,9 @@ public class TaxerMenuView extends Printable{
         askIfStart();
     }
 
+    /**
+     * Overriding method title, because any class have a different title.
+     */
     @Override
     public void title() {
         printMessage(colors.WHITE_BOLD_BRIGHT+"\n<<<<<<<<<<  "+

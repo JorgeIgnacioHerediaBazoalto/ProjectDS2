@@ -15,10 +15,16 @@ import java.util.ArrayList;
 public class TaxiView extends Printable {
     private RaceView raceView;
 
+    /**
+     * Constructor method call to father class.
+     */
     public TaxiView () {
         super();
     }
 
+    /**
+     * Overriding method title, because any class have a different title.
+     */
     @Override
     public void title() {
         printMessage("\n"+colors.PURPLE_BACKGROUND+"INFORMATION FROM THE TAXI"+colors.RESET+"\n");
