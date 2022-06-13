@@ -87,7 +87,7 @@ public class Taxer {
      * when all the taxis have their drivers the method just searches the available taxis with drivers
      *
      */
-    private void putRandomDriverToTaxi() {
+    public void putRandomDriverToTaxi() {
         Random random = new Random();
         if (!drivers.isEmpty() && !taxis.isEmpty()) {
             int randomTaxi = random.nextInt(taxis.size());
