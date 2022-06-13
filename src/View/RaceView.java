@@ -1,7 +1,5 @@
 package View;
 
-import Utils.ValuesRequester;
-
 import java.text.DecimalFormat;
 
 
@@ -17,8 +15,8 @@ import java.text.DecimalFormat;
 public class RaceView extends Printable{
 
     private final DecimalFormat formatCost = new DecimalFormat("#.00");
-    protected String orderAnswer;
-    protected boolean order;
+    protected String sureOfRideAnswer;
+    protected boolean sureOfRide;
 
     public RaceView() {
         super();
@@ -26,7 +24,7 @@ public class RaceView extends Printable{
 
     @Override
     public void title() {
-        printMessage("\n"+colors.CYAN_BACKGROUND+ "INFORMATION GENERAL FROM THE RACE"+colors.RESET + "\n");
+        printMessage("\n"+colors.CYAN_BACKGROUND+ "GENERAL INFORMATION FROM THE RACE"+colors.RESET + "\n");
     }
 
     public void printLookingTaxi() {
@@ -46,18 +44,18 @@ public class RaceView extends Printable{
     }
     public void askIfSureOfInformation(){
         printMessage("\nIs correct the information of the ride?: ");
-        orderAnswer = valuesRequester.askTwoOptionString("Yes","No");
+        sureOfRideAnswer = valuesRequester.askTwoOptionString("Yes","No");
     }
 
     public void sureOfInformation() {
-        order = (orderAnswer.equalsIgnoreCase("Yes"));
+        sureOfRide = (sureOfRideAnswer.equalsIgnoreCase("Yes"));
     }
-    public boolean getOrderRide() {
-        return order;
+    public boolean getSureOfRide() {
+        return sureOfRide;
     }
 
     public void setOrderRide(boolean order) {
-        this.order = order;
+        this.sureOfRide = order;
     }
 
     public void printerTheInformationOfRace(){printMessage("\n"+colors.GREEN_BACKGROUND+ "INFORMATION FROM THE RACE"+colors.RESET + "\n");}

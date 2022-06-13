@@ -41,11 +41,7 @@ public class Validator {
      * @return a signal that indicates whether or not the 5 passengers pass or not
      */
     public boolean verifyQuantity(int quantity){
-        boolean isAllowed = true;
-        if(quantity > 5){
-            isAllowed = false;
-        }
-        return isAllowed;
+        return (quantity < 5 && quantity > 0);
     }
 
     /**
@@ -58,14 +54,7 @@ public class Validator {
      */
 
     public boolean verifyName(String name){
-
-        boolean result = true;
-
-        if (regularExpression.validateNumbers(name) || regularExpression.validateSymbols(name)) {
-            result = false;
-        }
-
-        return result;
+        return !regularExpression.validateNumbers(name) && !regularExpression.validateSymbols(name);
 
     }
 

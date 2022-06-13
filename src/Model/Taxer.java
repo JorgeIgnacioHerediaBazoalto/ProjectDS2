@@ -1,12 +1,12 @@
 package Model;
 
 import DB.*;
-
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
  * This is the class that contains the principal functions of the app
+ * The class TAXER assign drivers to the taxis available, searches the taxis available to take the ride
  *
  * @author Santiago Caballero
  */
@@ -18,7 +18,12 @@ public class Taxer {
 
     /**
      * This is the constructor method of Taxer
-     * It initializes lists of taxis, drivers and taxis with drivers
+     * It initializes lists of taxis, drivers, taxis with drivers, and the taxis available
+     * the list taxis contains the taxis from our database
+     * the list drivers contains drivers from our database
+     * the list taxisWithDriver will contain the taxis with a driver given
+     * the list taxisAvailable will contain the taxis with driver available for a ride
+     *
      */
     public Taxer() {
         this.taxis = new ArrayList<>();
@@ -46,7 +51,7 @@ public class Taxer {
     /**
      * This method searches the available taxis from the list of taxis with driver
      * the method puts the available taxis in a new list in order to start a ride
-     * in the case of being taxis that are not available the method removes them from the available taxis list
+     * if there are taxis that aren't available the method removes them from the available taxis list
      *
      */
     public void searchTaxiAvailable() {
@@ -61,7 +66,7 @@ public class Taxer {
     }
 
     /**
-     * ?
+     * Method to add iterations to all the taxis with driver
      */
     public void addIteration() {
         if (taxisWithDriver.size() > 0) {
@@ -72,15 +77,15 @@ public class Taxer {
     }
 
     /**
-     * ?
+     * Method to simulate the availability of the taxi.
      */
-    public void viewTaxisAvailable() {
+    public void taxiAvailabilitySimulation() {
         Simulator simulator = new Simulator();
         simulator.makeTaxiAvailable(taxisWithDriver);
     }
 
     /**
-     * This method set the driver in taxi.
+     * This method assign the driver in the taxi.
      * @param driver any driver available.
      * @param taxi any taxi available.
      */
@@ -89,7 +94,7 @@ public class Taxer {
         removeDriver(driver);
         removeTaxi(taxi);
         taxisWithDriver.add(taxi);
-        viewTaxisAvailable();
+        taxiAvailabilitySimulation();
     }
 
     /**
@@ -106,7 +111,7 @@ public class Taxer {
             assignDriverToTaxi(drivers.get(randomDriver), taxis.get(randomTaxi));
         }
         else {
-            viewTaxisAvailable();
+            taxiAvailabilitySimulation();
         }
     }
 
@@ -122,8 +127,8 @@ public class Taxer {
      * This method assign one random driver to any taxi available found.
      */
     public void startLookingTaxi() {
-        searchTaxiAvailable();
         putRandomDriverToTaxi();
+        searchTaxiAvailable();
     }
 
     /**
@@ -164,5 +169,13 @@ public class Taxer {
      */
     public void removeTaxi(Taxi taxi) {
         taxis.remove(taxi);
+    }
+
+    /**
+     * This method is to get the list of taxis with driver.
+     * @return the list of taxis with driver
+     */
+    public ArrayList<Taxi> getTaxisWithDriver() {
+        return taxisWithDriver;
     }
 }

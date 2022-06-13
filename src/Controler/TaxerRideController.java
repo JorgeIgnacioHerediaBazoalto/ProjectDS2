@@ -48,7 +48,6 @@ public class TaxerRideController {
     private void taxiGeneralInformation(Taxi taxiModel) {
         taxiController = new TaxiController(taxiModel, taxiView);
         showInfoGeneralOfThing(taxiController);
-        taxiController.ridesGeneralInformation();
     }
 
     /**
@@ -101,6 +100,7 @@ public class TaxerRideController {
         while (taxerRideView.getBoolIfOrder()) {
             startApp();
         }
+        taxisGeneralInformation();
         taxerRideView.thanksMessage();
     }
 
@@ -126,6 +126,15 @@ public class TaxerRideController {
     public void showGeneralInfo(Taxi taxiAvailable){
         showInfoGeneralOfThing(raceController);
         taxiGeneralInformation(taxiAvailable);
+    }
+
+    private void taxisGeneralInformation() {
+        taxerRideView.racesOfTaxisPrintMessage();
+        for (Taxi taxi:taxerModel.getTaxisWithDriver()) {
+            taxiController = new TaxiController(taxi,taxiView);
+            showInfoGeneralOfThing(taxiController);
+            taxiController.ridesGeneralInformation();
+        };
     }
 
     /**

@@ -1,10 +1,6 @@
 package Model;
 
-import Model.Taxi;
-
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  * This class is a Simulator class to simulate when the taxi is busy to set its availability
@@ -12,25 +8,19 @@ import java.util.GregorianCalendar;
  * of asigning taxis to the
  */
 public class Simulator {
-    // protected Calendar calendary = new GregorianCalendar();
 
+    /**
+     * This is the constructor method of Simulator class
+     */
     public Simulator() {}
 
     /**
      * This class turn a taxi available when the iteration is divisible by 5
-     * @param taxisWithDriver
+     * @param taxisWithDriver the list of taxis with driver to set the availability of them
      */
     public void makeTaxiAvailable(ArrayList<Taxi> taxisWithDriver) {
         for (Taxi taxi: taxisWithDriver) {
             taxi.setAvailability(taxi.getIterations() % 5 == 0);
         }
     }
-    /*
-    public void makeTaxiAvailable(ArrayList<Taxi> taxisWithDriver) {
-        for (Taxi taxi: taxisWithDriver
-        ) {
-            taxi.setAvailability(calendary.get(Calendar.SECOND) >= 40 || taxi.getIterations() == 0);
-            System.out.print(calendary.get(Calendar.SECOND));
-        }
-    }*/
 }

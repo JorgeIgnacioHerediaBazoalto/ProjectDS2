@@ -23,9 +23,6 @@ public class TaxiView extends Printable {
     public void title() {
         printMessage("\n"+colors.PURPLE_BACKGROUND+"INFORMATION FROM THE TAXI"+colors.RESET+"\n");
     }
-
-//    public void titleInformationOfTaxi(){printMessage("\n"+colors.PURPLE_BACKGROUND+"INFORMATION FROM THE TAXI"+colors.RESET+"\n");}
-
     /**
      * This method create the message it contains general information or identification information.
      *
@@ -49,9 +46,9 @@ public class TaxiView extends Printable {
      */
     public void printRidesInformation(ArrayList<Race> rides) {
         if (!rides.isEmpty()) {
-            System.out.println();
-            System.out.println("----TAXI RIDES-----");
-            System.out.println();
+            printMessage(colors.BLUE_BOLD_BRIGHT+"\n-------"+
+                    colors.WHITE_BOLD_BRIGHT+" TAXI RIDES "+
+                    colors.BLUE_BOLD_BRIGHT+"--------\n"+colors.RESET);
             printEachRaceInfo(rides);
         }
     }
@@ -63,9 +60,8 @@ public class TaxiView extends Printable {
     private void printEachRaceInfo(ArrayList<Race> rides) {
         raceView = new RaceView();
         for (Race race:rides) {
-            System.out.println();
-            System.out.println(colors.GREEN_BOLD_BRIGHT+"RIDE NUMBER: "+
-                    colors.WHITE_BOLD_BRIGHT+(rides.indexOf(race)+1)+colors.RESET);
+            printMessage(colors.GREEN_BOLD_BRIGHT+"\nRIDE NUMBER: "+
+                    colors.WHITE_BOLD_BRIGHT+(rides.indexOf(race)+1)+colors.RESET+"\n");
             RaceController raceController = new RaceController(race,raceView);
             raceController.generalInformation();
         }

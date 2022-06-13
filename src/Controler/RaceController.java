@@ -105,7 +105,7 @@ public class RaceController implements Controllable {
      * raceView.printLookingTaxi(); print standby message.
      */
     public void askRaceInfo() {
-        while (!raceView.getOrderRide()) {
+        while (!raceView.getSureOfRide()) {
             askInfo();
         }
         raceView.setOrderRide(false);
