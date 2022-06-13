@@ -10,6 +10,7 @@ public class TestTaxi {
 
     @Test
     public void testIsAvailable() {
+        taxi.setAvailability(true);
         assertEquals("The taxi with number plate: 1234abc\nIs AVAILABLE", taxiViewTest.showIsAvailable(taxi.getNumberPlate(), taxi.isAvailability()));
     }
 
