@@ -8,6 +8,11 @@ import java.util.List;
 public class Drivers {
     protected ArrayList<Driver> drivers;
 
+    /**
+     * Constructor method that initializes three drivers and add them to a
+     * driver list
+     */
+
     public Drivers() {
         drivers = new ArrayList<>();
         Driver driver1 = new Driver("Juan Alcachofa", 1234567, 22, 987654, 0);
@@ -18,6 +23,12 @@ public class Drivers {
         drivers.add(driver3);
     }
 
+
+    /**
+     * This method returns a drivers list
+     *
+     * @return list of drivers
+     */
     public ArrayList<Driver> getDrivers() {
         return drivers;
     }

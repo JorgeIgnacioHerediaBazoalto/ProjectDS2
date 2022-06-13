@@ -9,6 +9,11 @@ import Utils.Colors;
 public class Taxis {
     protected Colors colors =new Colors();
     protected ArrayList<Taxi> taxis;
+
+    /**
+     * Constructor method that initializes five taxis drivers and add them to a
+     * taxi list
+     */
     public Taxis() {
         taxis = new ArrayList<>();
         Taxi taxi1 = new Taxi("1234abc", "ToyotaRaptor-2022","Blue", 5,null);
@@ -24,6 +29,12 @@ public class Taxis {
         taxis.add(taxi5);
     }
 
+
+    /**
+     * This method returns a taxi list
+     *
+     * @return list of taxis
+     */
     public ArrayList<Taxi> getTaxis() {
         return taxis;
     }
