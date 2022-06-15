@@ -39,7 +39,7 @@ public class PrintStyle {
         for (int i = 0; i < quantity; i++) {
             try {
                 System.out.print(messageLoad);
-                TimeUnit.MILLISECONDS.sleep(5);
+                TimeUnit.SECONDS.sleep(0);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

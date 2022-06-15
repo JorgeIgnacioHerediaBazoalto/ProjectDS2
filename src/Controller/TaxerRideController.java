@@ -74,7 +74,7 @@ public class TaxerRideController {
      */
     private void startTripIfAvailable() {
         if (taxerModel.getTaxisAvailable().size() > 0) {
-            Taxi taxiAvailable = taxerModel.getTaxisAvailable().get(taxerModel.getTaxisAvailable().size()-1);
+            Taxi taxiAvailable = taxerModel.getTaxisAvailable().get(0);
             setRaceAttributes(taxiAvailable);
             taxerRideView.taxiAvaliableMessage();
             showGeneralInfo(taxiAvailable);
